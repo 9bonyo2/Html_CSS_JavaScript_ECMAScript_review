@@ -16,7 +16,7 @@ body {
 .navbar {
     background-color: #ffffff;
     height: 80px;
-    display: flex;             /* 1. 배치 모드 활성화 */
+    display: flex;             /* 1. 배치 모드 활성화*/
     justify-content: center;   /* 2. 가로 방향 중앙 정렬 */
     align-items: center;       /* 3. 세로 방향 중앙 정렬 */
     border-bottom: 1px solid #ddd;
@@ -71,7 +71,7 @@ body {
 }
  
 .card-content p {
-    color: #777;
+    color: #333;
     font-size: 0.95rem;
     margin-bottom: 20px;
 }
@@ -107,9 +107,9 @@ body {
     border-top: 1px solid #eee;
 }
 
-
 @media (max-width: 768px) {
     .project-container {
         grid-template-columns: 1fr;   /* 3열 → 1열 */
     }
 }
+
