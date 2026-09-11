@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4장. 목록과 표</title>
+  </head>
+  <body>
+
+    <!-- ============================================
+         순서 없는 목록 — ul + li
+         ============================================ -->
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+
+
+    <!-- ============================================
+         순서 있는 목록 — ol + li
+         ============================================ -->
+    <ol>
+      <li>VS Code 설치</li>
+      <li>Live Server 설치</li>
+      <li>Chrome 개발자 도구 열어보기</li>
+    </ol>
+
+
+    <!-- ============================================
+         중첩 목록 — li 안에 ul 을 다시 넣는다
+         ============================================ -->
+    <ul>
+      <li>프론트엔드
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+        </ul>
+      </li>
+      <li>백엔드</li>
+    </ul>
+
+
+    <!-- ============================================
+         설명 목록 — dl + dt + dd
+         ============================================ -->
+    <dl>
+      <dt>HTML</dt>
+      <dd>화면의 구조를 만드는 언어</dd>
+      <dt>CSS</dt>
+      <dd>화면을 꾸미는 언어</dd>
+    </dl>
+
+
+    <!-- ============================================
+         표 — 3부에서 학생 목록을 만드는 구조
+           table   표 전체
+           thead   머리 부분
+           tbody   내용 부분
+           tr      가로 한 줄(row)
+           th      머리 칸
+           td      내용 칸
+         ============================================ -->
+    <table border="1">
+      <caption>학생 목록</caption>
+
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>학번</th>
+          <th>주소</th>
+          <th>액션</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>홍길동</td>
+          <td>20241234</td>
+          <td>서울시 강남구</td>
+          <td><button type="button">수정</button></td>
+        </tr>
+        <tr>
+          <td>김코딩</td>
+          <td>20241235</td>
+          <td>부산시 해운대구</td>
+          <td><button type="button">수정</button></td>
+        </tr>
+
+        <!-- colspan — 이 칸 하나가 가로 4칸을 차지한다 -->
+        <tr>
+          <td colspan="4">등록된 학생이 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>

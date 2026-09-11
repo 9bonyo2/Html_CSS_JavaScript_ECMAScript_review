@@ -1,0 +1,49 @@
+/* ===== 10장. position ===== */
+
+.pos-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+}
+.pcard {
+    position: relative;           /* 기준점 — 이 줄이 핵심입니다 */
+    padding: 22px 14px;
+    border: 1px solid #ccd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 0.85rem;
+}
+.pcard.no-rel {
+    position: static;             /* 기준점이 없는 경우 */
+}
+.pcard .badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background-color: #c0504d;
+    color: #ffffff;
+    font-size: 0.7rem;
+}
+
+/* --- sticky --- */
+.scroll-area {
+    height: 200px;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+.sticky-head {
+    position: sticky;
+    top: 0;
+    padding: 8px 12px;
+    background-color: #2e5496;
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+.scroll-area p {
+    margin: 0;
+    padding: 8px 12px;
+    border-bottom: 1px solid #eceff3;
+    font-size: 0.85rem;
+}

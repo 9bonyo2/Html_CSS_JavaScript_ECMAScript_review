@@ -1,0 +1,60 @@
+/* ===== 2장. 선택자와 우선순위 ===== */
+
+/* --- 기본 선택자 --- */
+.sel-demo p {          /* 타입 선택자 (가장 약함) */
+    color: #555;
+}
+.sel-demo .hi {        /* 클래스 선택자 */
+    color: #2e5496;
+    font-weight: bold;
+}
+.sel-demo #only {      /* id 선택자 (가장 셈) */
+    color: #c0504d;
+}
+
+/* --- 관계 선택자 : 공백의 차이 ---
+   공백은 자손 결합자다. 있고 없고가 대상을 바꾼다.
+
+       .box-a:hover    공백 없음 → box-a "자신"이 hover
+       .box-b :hover   공백 있음 → box-b "안의 자손"이 hover
+
+   :hover 는 조상에게도 함께 붙으므로 span 에 올리면 .box-b 도 hover 다.
+   하지만 .box-b :hover 는 자손만 고르므로 .box-b 자신은 탈락하고 span 만 바뀐다.
+   (box-b 의 빈 여백에 올려 보면 hover 인 자손이 없어 아무 색도 안 변한다)   */
+.box-a, .box-b {
+    margin-bottom: 12px;
+    padding: 14px;
+    border: 1px solid #ccd;
+    border-radius: 6px;
+    background-color: #ffffff;
+    transition: background-color 0.25s;
+}
+.box-a .inner, .box-b .inner {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: #eef1f5;
+    transition: background-color 0.25s;
+}
+
+/* .box-a 자신에게 마우스가 올라올 때 */
+.box-a:hover {
+    background-color: #e5f0f8;
+}
+
+/* 공백에 주의. 실무에서는 .box-b .inner:hover 처럼 대상을 밝혀 적는다.
+    .box-a:hover    공백 없음 → box-a "자신"이 hover
+    .box-b :hover   공백 있음 → box-b "안의 자손"이 hover
+    .card :hover 와 .card:hover 를 헷갈리는 것이 가장 흔한 실수다. 
+*/
+.box-b :hover {
+    background-color: #fceaea;
+}
+
+/* --- 우선순위 실험 --- */
+p.prio {
+    color: #2e5496;             /* class */
+}
+#prio-id {
+    color: #c0504d;             /* id — 이쪽이 이깁니다 */
+}

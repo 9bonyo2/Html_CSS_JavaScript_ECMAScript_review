@@ -1,0 +1,92 @@
+/* ===== 5장. display: grid ===== */
+
+.lbl {
+    margin: 14px 0 6px;
+    color: #777777;
+    font-size: 0.85rem;
+}
+.lbl:first-child { margin-top: 0; }
+
+.g-fixed, .g3, .g21, .gmix, .g4, .card-list {
+    display: grid;                 /* 부모에 선언합니다 */
+    gap: 10px;
+    margin-bottom: 8px;
+}
+.g-fixed div,
+.g3 i, .g21 i, .gmix i, .g4 i, .card-list i {
+    padding: 16px 8px;
+    background-color: #dce6f1;
+    text-align: center;
+    font-style: normal;
+}
+
+/* --- 5-2 열과 행을 직접 정의 --- */
+.g-fixed {
+    grid-template-columns: 100px 200px 100px;   /* 3열 */
+    grid-template-rows: 50px 50px;              /* 2행 */
+}
+
+/* --- 5-3 fr 단위 --- */
+.g3   { grid-template-columns: 1fr 1fr 1fr; }
+.g21  { grid-template-columns: 2fr 1fr; }
+.gmix { grid-template-columns: 200px 1fr 100px; }
+.g4   { grid-template-columns: repeat(4, 1fr); }
+
+/* --- 5-5 grid-template-areas --- */
+.website {
+    display: grid;
+    grid-template-areas:
+        "header  header   header"
+        "sidebar content  content"
+        "sidebar content  content"
+        "footer  footer   footer";
+    /* 
+        이 표는 3열 × 4행 = 12칸 
+        grid-template-columns: 200px 1fr 1fr;    → 열이 3개
+        grid-template-rows: 60px 1fr 1fr 50px;   → 행이 4개
+
+           200px      1fr        1fr
+        +---------+----------+----------+
+   60px |        header (3칸 합침)      |
+        +---------+----------+----------+
+    1fr | sidebar |      content        |   ← content 도
+        +         +   (2열 × 2행 = 4칸) +      4칸을 합침
+    1fr |  (2행)  |                     |
+        +---------+----------+----------+
+   50px |        footer (3칸 합침)      |
+        +---------+----------+----------+
+    */    
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: 60px 1fr 1fr 50px;
+    gap: 10px;
+    height: 320px;
+}
+.website > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+.w-header  { grid-area: header;  background-color: #333333; }
+.w-sidebar { grid-area: sidebar; background-color: #2e5496; }
+.w-content { grid-area: content; background-color: #6b7f99; }
+.w-footer  { grid-area: footer;  background-color: #555555; }
+
+/* 반응형 — areas 만 다시 그리면 된다. HTML 은 그대로 */
+@media (max-width: 768px) {
+    .website {
+        grid-template-areas:
+            "header"
+            "content"
+            "sidebar"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 1fr 1fr 50px;
+    }
+}
+
+/* --- 5-6 auto-fit + minmax : 미디어 쿼리 없는 반응형 --- */
+.card-list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}

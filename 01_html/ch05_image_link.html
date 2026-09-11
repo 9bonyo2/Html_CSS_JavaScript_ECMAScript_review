@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5장. 이미지와 링크</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>5장. 이미지와 링크</h1>
+      <p class="ref">5장 &middot; 01_HTML_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>이미지</h2>
+        <pre>&lt;img src="../assets/sample.svg" alt="샘플 프로필 이미지" /&gt;</pre>
+
+        <div class="demo">
+          <img src="../assets/sample.svg" alt="샘플 프로필 이미지" />
+        </div>
+
+        <table class="ex">
+          <tr><th>속성</th><th>설명</th></tr>
+          <tr><td>src</td><td>이미지 파일 경로. 상대 경로 규칙이 그대로 적용됩니다</td></tr>
+          <tr><td>alt</td><td>이미지를 못 볼 때 대신 읽히는 글자. 생략하면 안 됩니다</td></tr>
+        </table>
+
+        <h3>src 를 일부러 틀리면</h3>
+        <div class="demo">
+          <img src="없는파일.svg" alt="이 글자가 alt 입니다 — 이미지가 없으면 이게 보입니다" />
+        </div>
+
+        <div class="note">
+          <b>알아두기</b>
+          본 교재는 실습 파일을 가볍게 유지하려고 사진 대신 회색 상자(div)를 썼습니다.
+          (실습 1-4의 .photo, 실습 2-5의 .card-image)
+          실제 사진을 넣으려면 그 div 를 img 로 바꾸고
+          <code>width:100%; height:100%; object-fit:cover;</code> 를 주면 됩니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>링크</h2>
+        <div class="demo">
+          <p><a href="ch04_list_table.html">같은 폴더의 다른 페이지로 이동</a></p>
+          <p><a href="https://github.com/mysoyul/Html_CSS_JS_App" target="_blank" rel="noopener">
+            외부 사이트를 새 탭에서 열기</a></p>
+          <p><a href="#bottom">같은 페이지 안의 특정 위치로 이동</a></p>
+        </div>
+
+        <table class="ex">
+          <tr><th>형태</th><th>동작</th></tr>
+          <tr><td><code>href="page.html"</code></td><td>같은 폴더의 다른 페이지</td></tr>
+          <tr><td><code>href="https://..."</code></td><td>외부 사이트</td></tr>
+          <tr><td><code>href="#id"</code></td><td>같은 페이지 안에서 그 id 로 스크롤</td></tr>
+          <tr><td><code>target="_blank"</code></td><td>새 탭에서 열기 (<code>rel="noopener"</code> 를 함께)</td></tr>
+        </table>
+
+        <div class="note">
+          <b>알아두기</b>
+          a 태그는 인라인 요소라 기본적으로 파란 글씨에 밑줄이 붙습니다.
+          실습 1-6에서 <code>text-decoration: none</code> 으로 밑줄을 없애고
+          hover 효과를 주는 것이 바로 이 태그입니다.
+        </div>
+
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          이미지가 깨진 아이콘으로 보이면 src 경로가 틀린 것입니다.
+          F12 → Network 탭에서 404 를 확인하세요.
+        </div>
+
+        <p id="bottom" style="margin-top:200px; color:#7b4fa0;">
+          여기가 <code>#bottom</code> 입니다. 위의 세 번째 링크로 여기까지 왔습니다.
+        </p>
+      </section>
+    
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

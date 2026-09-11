@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "ECMAScript 는 JavaScript 의 표준입니다",
+    "body": "ECMA-262 문서가 언어의 문법을 정의합니다. document 나 fetch 는 브라우저가 제공하는 기능입니다."
+  },
+  {
+    "id": 2,
+    "title": "ES6 에서 언어가 크게 달라졌습니다",
+    "body": "let/const, 화살표 함수, 템플릿 리터럴, 구조 분해, 모듈, Promise 가 한꺼번에 들어왔습니다."
+  },
+  {
+    "id": 3,
+    "title": "async / await 는 ES2017 문법입니다",
+    "body": "then 체인을 위에서 아래로 읽히는 코드로 바꿔 줍니다. 에러 처리는 try / catch 로 합니다."
+  }
+]

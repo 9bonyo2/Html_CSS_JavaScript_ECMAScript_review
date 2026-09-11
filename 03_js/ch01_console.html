@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1장. JavaScript 붙이기와 콘솔</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>1장. JavaScript 붙이기와 콘솔</h1>
+      <p class="ref">1장 &middot; 03_JavaScript_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>세 가지 방법</h2>
+        <pre>&lt;!-- ① 태그에 직접 (권장하지 않음) --&gt;
+&lt;button onclick="alert('안녕')"&gt;클릭&lt;/button&gt;
+
+&lt;!-- ② 내부 : body 끝에 script 태그 --&gt;
+&lt;script&gt;
+    console.log("안녕");
+&lt;/script&gt;
+
+&lt;!-- ③ 외부 파일 (실무 표준) --&gt;
+&lt;script src="js/ch01_console.js"&gt;&lt;/script&gt;</pre>
+
+        <div class="note">
+          <b>알아두기</b>
+          script 태그는 <code>&lt;/body&gt;</code> 바로 앞에 둡니다.
+          위쪽에 두면 아직 만들어지지도 않은 요소를 찾으려다 null 을 받게 됩니다.
+        </div>
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          <code>&lt;script src="..." /&gt;</code> 처럼 혼자 닫으면 동작하지 않습니다.
+          반드시 <code>&lt;/script&gt;</code> 로 닫으세요.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>console — 가장 중요한 도구</h2>
+        <pre>console.log("학생 목록 로드 중...");   // 일반 출력
+console.log(student);                   // 객체를 펼쳐서
+console.error("Error:", error);         // 빨간색으로 강조
+console.table(students);                // 배열을 표로</pre>
+
+        <p>
+          <button type="button" id="btnLog">console.log</button>
+          <button type="button" id="btnError">console.error</button>
+          <button type="button" id="btnTable">console.table</button>
+          <button type="button" id="btnClear">지우기</button>
+        </p>
+        <div class="check">
+          <b>확인하기</b>
+          F12 → Console 탭을 열고 위 버튼들을 눌러 보세요.
+          console.table 은 Console 탭에서만 표로 보입니다.
+        </div>
+      </section>
+    
+      <section class="block">
+        <h2>실행 결과</h2>
+        <p style="font-size:0.85rem; color:#777;">
+          아래 내용은 <code>out()</code> 으로 찍은 것이며, F12 → Console 에도 같이 나옵니다.
+        </p>
+        <pre id="output"></pre>
+      </section>
+
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch01_console.js"></script>
+  </body>
+</html>

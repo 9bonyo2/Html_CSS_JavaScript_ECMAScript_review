@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8장. 시맨틱 태그와 접근성</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>8장. 시맨틱 태그와 접근성</h1>
+      <p class="ref">8장 &middot; 01_HTML_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>div 대신 이름 있는 상자</h2>
+        <pre>&lt;!-- 의미가 드러나지 않는 코드 --&gt;
+&lt;div class="header"&gt;...&lt;/div&gt;
+&lt;div class="main"&gt;...&lt;/div&gt;
+
+&lt;!-- 같은 화면, 의미가 드러나는 코드 --&gt;
+&lt;header class="header"&gt;...&lt;/header&gt;
+&lt;main class="container"&gt;...&lt;/main&gt;</pre>
+
+        <div class="demo">
+          <div style="border:1px solid #ccd; border-radius:6px; overflow:hidden;">
+            <header style="background:#333; color:#fff; padding:10px 14px;">
+              header — 머리 부분
+              <nav style="display:inline; margin-left:14px; font-size:0.85rem;">
+                nav — 메뉴
+              </nav>
+            </header>
+            <section style="background:#eef2f7; padding:14px;">section — 주제가 있는 덩어리</section>
+            <main style="background:#fff; padding:14px;">main — 페이지의 주요 내용 (한 번만)</main>
+            <aside style="background:#f7f3ee; padding:14px; font-size:0.9rem;">aside — 곁다리 정보</aside>
+            <footer style="background:#eee; padding:10px 14px; font-size:0.85rem;">footer — 바닥</footer>
+          </div>
+        </div>
+
+        <table class="ex">
+          <tr><th>태그</th><th>뜻</th><th>본 교재에서</th></tr>
+          <tr><td>header</td><td>머리 부분</td><td>실습 1-2 상단 바</td></tr>
+          <tr><td>nav</td><td>내비게이션 묶음</td><td>실습 1-2, 2-2</td></tr>
+          <tr><td>main</td><td>주요 내용 (한 번만)</td><td>실습 1-4, 2-3</td></tr>
+          <tr><td>section</td><td>주제가 있는 덩어리</td><td>실습 1-3 히어로, 1-5 기술 스택</td></tr>
+          <tr><td>footer</td><td>바닥</td><td>실습 1-6, 2-8</td></tr>
+        </table>
+
+        <div class="note">
+          <b>알아두기</b>
+          두 코드는 화면상 완전히 같습니다. 차이는 사람과 기계가 읽을 때 생깁니다.
+          검색 엔진은 main 안의 내용을 본문으로 취급하고,
+          화면 낭독기 사용자는 nav 나 main 으로 바로 건너뛸 수 있습니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>접근성 — 최소한 이것만은</h2>
+        <ul>
+          <li>모든 img 에 <code>alt</code> 를 씁니다. 장식용이면 <code>alt=""</code> 로 비워 둡니다.</li>
+          <li>모든 input 에 짝이 되는 <code>label</code> 을 답니다.</li>
+          <li>html 태그에 <code>lang="ko"</code> 를 씁니다.</li>
+          <li>제목은 h1 → h2 → h3 순서로 건너뛰지 않고 내려갑니다.</li>
+          <li>색만으로 정보를 전달하지 않습니다. 빨간 글씨에는 문구도 함께 넣습니다.</li>
+        </ul>
+
+        <h3>label 이 있을 때와 없을 때</h3>
+        <div class="demo">
+          <p style="margin:0 0 6px;">
+            <label for="good">이름 (label 연결됨 — 글자를 클릭해 보세요):</label>
+            <input type="text" id="good" />
+          </p>
+          <p style="margin:0;">
+            <span>이름 (label 없음 — 글자를 클릭해도 반응 없음):</span>
+            <input type="text" id="bad" />
+          </p>
+        </div>
+
+        <div class="check">
+          <b>확인하기</b>
+          F12 → Elements 에서 header / main / footer 구조가 한눈에 보인다.
+        </div>
+      </section>
+    
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

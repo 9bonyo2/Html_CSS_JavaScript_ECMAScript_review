@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10장. position</title>
+    <link rel="stylesheet" href="css/ch10_position.css" />
+  </head>
+  <body>
+
+    <h1>position</h1>
+
+    <!-- relative 와 absolute 는 한 쌍 :
+         부모에 relative 로 기준점을 만들고, 자식을 absolute 로 띄운다 -->
+    <div class="pos-row">
+      <div class="pcard">
+        부모에 position: relative
+        <span class="badge">NEW</span>
+      </div>
+
+      <div class="pcard no-rel">
+        부모가 static (기준점 없음) — 배지가 화면 기준으로 날아간다
+        <span class="badge">NEW</span>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- sticky — 스크롤하다 지정 위치에 닿으면 붙는다 -->
+    <div class="scroll-area">
+      <div class="sticky-head">position: sticky / top: 0 — 스크롤해 보세요</div>
+      <p>내용 1</p>
+      <p>내용 2</p>
+      <p>내용 3</p>
+      <p>내용 4</p>
+      <p>내용 5</p>
+      <p>내용 6</p>
+      <p>내용 7</p>
+      <p>내용 8</p>
+    </div>
+  </body>
+</html>

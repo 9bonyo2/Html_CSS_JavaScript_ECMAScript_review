@@ -1,0 +1,31 @@
+/* ===== 6장. CSS Grid ===== */
+
+.demo .lbl {
+    margin: 14px 0 6px;
+    color: #777;
+    font-size: 0.85rem;
+    font-family: Consolas, monospace;
+}
+.demo .lbl:first-child { margin-top: 0; }
+
+.g3, .g-half, .g-21, .g-fixed, .g-auto {
+    display: grid;                 /* 부모에 선언합니다 */
+    gap: 12px;
+    margin-bottom: 8px;
+}
+.g3 i, .g-half i, .g-21 i, .g-fixed i, .g-auto i {
+    padding: 16px 8px;
+    border-radius: 4px;
+    background-color: #dce6f1;
+    text-align: center;
+    font-style: normal;
+    font-family: Consolas, monospace;
+}
+
+.g3      { grid-template-columns: repeat(3, 1fr); }
+.g-half  { grid-template-columns: 1fr 1fr; }
+.g-21    { grid-template-columns: 2fr 1fr; }
+.g-fixed { grid-template-columns: 200px 1fr; }
+
+/* 실습 3-3 의 반응형 폼과 같은 방식 */
+.g-auto  { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3장. 박스 모델</title>
+    <link rel="stylesheet" href="css/ch03_boxmodel.css" />
+  </head>
+  <body>
+
+    <h1>박스 모델</h1>
+
+    <!-- 네 겹의 구조 : content - padding - border - margin -->
+    <div class="bm-outer">
+      <div class="bm-box">content</div>
+    </div>
+
+    <hr />
+
+    <!-- box-sizing : 같은 width 220px 인데 실제 크기가 다르다 -->
+    <div class="sizing content-box">content-box (기본값)</div>
+    <div class="sizing border-box">border-box</div>
+
+    <hr />
+
+    <!-- margin: 0 auto — 가로 중앙 정렬 -->
+    <div class="centered">margin: 0 auto</div>
+  </body>
+</html>

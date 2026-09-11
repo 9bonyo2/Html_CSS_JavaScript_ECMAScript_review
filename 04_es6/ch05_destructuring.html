@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5장. 구조 분해 할당</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="index.html">&larr; 예제 목차</a>
+      <h1>5장. 구조 분해 할당</h1>
+      <p class="ref">5장 &middot; 04_ECMAScript_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>객체에서 필요한 값만 꺼내기</h2>
+        <pre>const user = {
+    name: '둘리',
+    age: 30,
+    phone: { home: '1234', mobile: '4566' }
+};
+
+const { name, age, phone } = user;          // 한 줄로 꺼내기
+const { phone: { home, mobile } } = user;   // 안쪽까지 한 번에
+
+const { name: userName } = user;            // 이름 바꿔 받기
+const { address = '미입력' } = user;         // 값이 없으면 기본값</pre>
+
+        <div class="note">
+          <b>알아두기</b>
+          <code>phone: { home, mobile }</code> 에서 phone 은 변수가 되지 않습니다.
+          "phone 안으로 들어가라"는 길 안내일 뿐입니다.
+          phone 자체도 필요하다면 따로 적어 주어야 합니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>배열 분해와 매개변수 분해</h2>
+        <pre>const [first, second] = ['red', 'green', 'blue'];
+const [, , third] = ['red', 'green', 'blue'];   // 건너뛰기
+
+let a = 1, b = 2;
+[a, b] = [b, a];                                // 임시 변수 없이 맞바꾸기
+
+// 매개변수 자리에서 바로 분해 — React 에서 자주 보는 형태
+function printStudent({ name, studentNumber }) { ... }</pre>
+
+        <div class="note">
+          <b>알아두기</b>
+          React 컴포넌트의 <code>function StudentRow({ student, onDelete })</code> 같은 코드가
+          바로 이것입니다. props 라는 객체를 통째로 받은 뒤 필요한 것만
+          매개변수 자리에서 꺼내는 것입니다.
+        </div>
+
+        <p style="font-size:0.9rem; color:#777;">
+          위 내용은 페이지를 열자마자 자동으로 실행되어 아래 결과 영역에 나옵니다.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>메서드를 분해하면 this 가 사라진다</h2>
+        <pre>const obj = {
+    names: 'React',
+    greet() { return this.names; }
+};
+
+console.log(obj.greet());     // 'React'   — 객체를 통해 부르면 정상
+
+const { names, greet } = obj;
+console.log(greet());         // undefined — this 가 obj 가 아니게 됨
+
+const boundGreet = obj.greet.bind(obj);
+console.log(boundGreet());    // 'React'   — bind 로 객체를 붙여 주면 해결</pre>
+
+        <p>
+          <button type="button" id="btnThis">this 소실과 bind 실행</button>
+          <button type="button" id="btnClear">지우기</button>
+        </p>
+
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          <code>Cannot read properties of undefined (reading 'names')</code> —
+          메서드를 객체에서 떼어 변수나 콜백으로 넘겼습니다.
+          <code>bind()</code> 를 쓰거나 <code>() =&gt; obj.greet()</code> 처럼 감싸서 넘기세요.
+        </div>
+
+        <div class="try">
+          <b>미니 과제</b>
+          <code>js/ch05_destructuring.js</code> 의 <code>obj</code> 에
+          <code>greet3: () =&gt; obj.names</code> 를 추가하고 구조 분해로 꺼내 호출해 보세요.
+          this 를 쓰지 않으면 떼어내도 잘 동작한다는 것을 확인할 수 있습니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>실행 결과</h2>
+        <p style="font-size:0.85rem; color:#777;">
+          아래 내용은 <code>out()</code> 으로 찍은 것이며, F12 → Console 에도 같이 나옵니다.
+        </p>
+        <pre id="output"></pre>
+      </section>
+
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch05_destructuring.js"></script>
+  </body>
+</html>

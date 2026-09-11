@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6장. CSS Grid</title>
+    <link rel="stylesheet" href="css/ch06_grid.css" />
+  </head>
+  <body>
+
+    <h1>CSS Grid</h1>
+
+    <!-- 열을 정하면 끝 : repeat(3, 1fr) -->
+    <div class="g3"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div>
+
+    <hr />
+
+    <!-- fr 단위 — 남는 공간을 비율로 나눈다 -->
+    <div class="g-half"><i>1fr</i><i>1fr</i></div>
+    <div class="g-21"><i>2fr</i><i>1fr</i></div>
+    <div class="g-fixed"><i>200px 고정</i><i>1fr — 나머지 전부</i></div>
+
+    <hr />
+
+    <!-- auto-fit + minmax — 미디어 쿼리 없는 반응형.
+         창 너비를 줄여 보세요. 열 개수가 저절로 바뀝니다. -->
+    <div class="g-auto">
+      <i>①</i><i>②</i><i>③</i><i>④</i><i>⑤</i><i>⑥</i>
+    </div>
+  </body>
+</html>

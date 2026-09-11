@@ -1,0 +1,72 @@
+/* ===== 7장. 함께 알아야 할 속성 ===== */
+
+.lbl {
+    margin: 14px 0 6px;
+    color: #777777;
+    font-size: 0.85rem;
+}
+.lbl:first-child { margin-top: 0; }
+
+/* --- 7-1 box-sizing --- */
+.bx {
+    width: 200px;
+    margin-bottom: 8px;
+    padding: 20px;
+    border: 5px solid #c0504d;
+    background-color: #dce6f1;
+    text-align: center;
+}
+.bx.content-box { box-sizing: content-box; }   /* 실제 250px */
+.bx.border-box  { box-sizing: border-box; }    /* 실제 200px */
+
+/* --- 7-2 overflow --- */
+.ovf-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+}
+.ovf-card {
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.ovf-card .head {
+    padding: 18px 8px;
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.8rem;
+}
+.ovf-card p { margin: 0; padding: 12px; font-size: 0.82rem; }
+
+/* 이 한 줄이 자식의 모서리를 잘라 준다 */
+.ovf-card.clipped { overflow: hidden; }
+
+.ovf-scroll {
+    height: 110px;
+    overflow: auto;               /* 넘칠 때만 스크롤바 */
+    border: 1px solid #ccd;
+    background-color: #ffffff;
+}
+.ovf-scroll p {
+    margin: 0;
+    padding: 10px 12px;
+    border-bottom: 1px solid #eceff3;
+}
+
+/* --- 7-3 position --- */
+.pcard {
+    position: relative;           /* 기준점 */
+    padding: 22px 14px;
+    border: 1px solid #ccd;
+    background-color: #ffffff;
+}
+.pcard .badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 2px 8px;
+    background-color: #c0504d;
+    color: #ffffff;
+    font-size: 0.7rem;
+}

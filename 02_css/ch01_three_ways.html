@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1장. CSS 를 붙이는 세 가지 방법</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+    <link rel="stylesheet" href="css/ch01_three_ways.css" />
+    <!-- ② 내부 스타일(internal style) : 실습 3-2 와 같은 방식입니다 -->
+    <style>
+      .internal-demo {
+        color: #e8a33d;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>1장. CSS 를 붙이는 세 가지 방법</h1>
+      <p class="ref">1장 &middot; 02_CSS_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>세 가지 방식</h2>
+        <pre>&lt;!-- ① 인라인 : 태그에 직접 --&gt;
+&lt;p style="color: red;"&gt;빨간 글씨&lt;/p&gt;
+
+&lt;!-- ② 내부 : head 안의 style 태그 --&gt;
+&lt;style&gt;
+    p { color: red; }
+&lt;/style&gt;
+
+&lt;!-- ③ 외부 : 별도 .css 파일 --&gt;
+&lt;link rel="stylesheet" href="css/ch01_three_ways.css" /&gt;</pre>
+
+        <div class="demo">
+          <p style="color:#c0504d; margin:4px 0;">① 인라인 — style 속성으로 직접</p>
+          <p class="internal-demo" style="margin:4px 0;">② 내부 — 이 페이지 head 의 style 태그</p>
+          <p class="external-demo">③ 외부 — css/ch01_three_ways.css 파일</p>
+        </div>
+
+        <table class="ex">
+          <tr><th>방식</th><th>장점</th><th>단점</th><th>쓸 때</th></tr>
+          <tr><td>인라인</td><td>그 요소에만 확실히</td><td>재사용 불가, 우선순위가 너무 높음</td><td>JS 로 값을 바꿀 때만</td></tr>
+          <tr><td>내부</td><td>파일 하나로 관리</td><td>다른 페이지와 공유 불가</td><td>짧은 실습</td></tr>
+          <tr><td>외부</td><td>여러 페이지가 공유</td><td>파일이 늘어남</td><td>거의 모든 실무 상황</td></tr>
+        </table>
+      </section>
+
+      <section class="block">
+        <h2>CSS 규칙의 생김새</h2>
+        <pre>선택자 {
+    속성: 값;      /* 주석은 이렇게 */
+}</pre>
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          세미콜론이나 중괄호를 하나 빠뜨리면 그 지점부터 아래 규칙이 전부 무시됩니다.
+          브라우저는 오류를 알려주지 않고 그냥 건너뜁니다.
+        </div>
+        <div class="try">
+          <b>미니 과제</b>
+          <code>css/ch01_three_ways.css</code> 의 <code>.external-demo</code> 규칙에서
+          세미콜론 하나를 지우고 저장해 보세요. 그 아래 규칙까지 함께 사라집니다.
+        </div>
+      </section>
+    
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

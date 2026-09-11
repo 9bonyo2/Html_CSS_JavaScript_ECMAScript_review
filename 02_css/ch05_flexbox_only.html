@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5장. Flexbox</title>
+    <link rel="stylesheet" href="css/ch05_flexbox.css" />
+  </head>
+  <body>
+
+    <h1>Flexbox</h1>
+
+    <!-- 부모에 display: flex 를 선언하면 자식들이 가로로 놓인다 -->
+    <div class="fbox">
+      <i>1</i><i>2</i><i>3</i>
+    </div>
+
+    <hr />
+
+    <!-- justify-content : 가로 정렬 여섯 가지 -->
+    <div class="fbox jc-start"><i>flex-start</i><i>2</i></div>
+    <div class="fbox jc-center"><i>center</i><i>2</i></div>
+    <div class="fbox jc-end"><i>flex-end</i><i>2</i></div>
+    <div class="fbox jc-between"><i>space-between</i><i>2</i></div>
+    <div class="fbox jc-around"><i>space-around</i><i>2</i></div>
+    <div class="fbox jc-evenly"><i>space-evenly</i><i>2</i></div>
+
+    <hr />
+
+    <!-- align-items : 세로 정렬 -->
+    <div class="fbox tall ai-stretch"><i>stretch</i><i>2</i></div>
+    <div class="fbox tall ai-center"><i>center</i><i>2</i></div>
+    <div class="fbox tall ai-start"><i>flex-start</i><i>2</i></div>
+    <div class="fbox tall ai-end"><i>flex-end</i><i>2</i></div>
+
+    <hr />
+
+    <!-- flex-direction 과 flex-wrap -->
+    <div class="fbox col"><i>column ①</i><i>②</i><i>③</i></div>
+    <div class="fbox wrap"><i>wrap ①</i><i>②</i><i>③</i><i>④</i></div>
+
+    <hr />
+
+    <!-- 외워둘 세 줄 — 정중앙 배치 -->
+    <div class="hero">
+      <p>display: flex / justify-content: center / align-items: center</p>
+    </div>
+
+    <hr />
+
+    <!-- 실습 1-2 헤더 : 왼쪽 로고 · 오른쪽 메뉴 -->
+    <header class="flex-header">
+      <h3>My Portfolio</h3>
+      <nav><span>소개</span><span>프로젝트</span><span>연락처</span></nav>
+    </header>
+  </body>
+</html>

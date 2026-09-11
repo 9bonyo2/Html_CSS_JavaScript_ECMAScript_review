@@ -1,0 +1,18 @@
+/* 실습 1-1 과 같은 최소 CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 40px;
+    background-color: #f4f4f4;
+    font-family: sans-serif;
+    line-height: 1.7;
+}
+
+h1 {
+    margin-bottom: 12px;
+    color: #1f3864;
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7장. div · span 과 class · id</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>7장. div · span 과 class · id</h1>
+      <p class="ref">7장 &middot; 01_HTML_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>의미 없는 상자 두 개</h2>
+        <table class="ex">
+          <tr><th>태그</th><th>성질</th><th>쓰임</th></tr>
+          <tr><td>div</td><td>블록 — 한 줄을 차지</td><td>영역을 묶는 상자. 카드, 컨테이너</td></tr>
+          <tr><td>span</td><td>인라인 — 글자 흐름 속에</td><td>문장 속 일부 글자에만 스타일</td></tr>
+        </table>
+
+        <div class="demo">
+          <div style="background:#dce6f1; padding:8px;">div — 한 줄 전체를 차지합니다</div>
+          <p>문장 속의 <span style="background:#f6dcd9; padding:2px 6px;">span</span> 은
+             흐름을 끊지 않습니다.</p>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>class 와 id</h2>
+        <pre>&lt;div class="card"&gt;...&lt;/div&gt;
+&lt;div class="card"&gt;...&lt;/div&gt;       &lt;!-- class 는 여러 번 --&gt;
+&lt;form id="studentForm"&gt;...&lt;/form&gt;  &lt;!-- id 는 단 하나 --&gt;</pre>
+
+        <div class="demo">
+          <div style="display:flex; gap:10px;">
+            <div class="card" style="flex:1; background:#fff; border:1px solid #ccd; border-radius:6px; padding:10px;">
+              class="card" ①
+            </div>
+            <div class="card" style="flex:1; background:#fff; border:1px solid #ccd; border-radius:6px; padding:10px;">
+              class="card" ②
+            </div>
+            <div class="card" style="flex:1; background:#fff; border:1px solid #ccd; border-radius:6px; padding:10px;">
+              class="card" ③
+            </div>
+          </div>
+        </div>
+
+        <table class="ex">
+          <tr><th></th><th>class</th><th>id</th></tr>
+          <tr><td>중복</td><td>여러 요소가 함께 사용</td><td>문서 전체에서 단 하나</td></tr>
+          <tr><td>CSS 선택자</td><td><code>.card</code> — 점(.)</td><td><code>#studentForm</code> — 샵(#)</td></tr>
+          <tr><td>주 용도</td><td>같은 모양을 여러 개에</td><td>JS 로 하나를 콕 집을 때</td></tr>
+        </table>
+
+        <div class="note">
+          <b>알아두기</b>
+          같은 id 를 두 곳에 쓰면 getElementById 는 첫 번째 것만 찾아내고,
+          두 번째 요소는 영원히 잡히지 않습니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>이름 짓기</h2>
+        <pre>class="card-image"     (O)  무엇인지를 말함
+class="blue-box"       (△)  색을 바꾸면 이름이 거짓말이 됨
+class="카드"            (X)  한글
+class="card image"     (X)  공백은 두 개의 클래스로 해석됨</pre>
+
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          <code>class="card image"</code> 로 쓰고 <code>.card image</code> 로 선택하면
+          안 됩니다. 공백은 "두 개의 클래스"를 뜻하므로 선택자는
+          <code>.card.image</code> 여야 합니다.
+        </div>
+      </section>
+    
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,16 @@
+/* ===== 1장. 외부 스타일 시트 예제 ===== */
+
+/* 이 규칙은 외부 CSS 파일에서 적용됩니다. */
+.external-demo {
+    margin: 4px 0;
+    color: #1f4e79;
+    font-weight: bold;
+}
+
+/* 세미콜론을 지워보는 실험용 규칙 (미니 과제) */
+.external-demo::after {
+    content: "  ← 외부 CSS 가 적용된 상태";
+    color: #8a93a0;
+    font-weight: normal;
+    font-size: 0.85rem;
+}

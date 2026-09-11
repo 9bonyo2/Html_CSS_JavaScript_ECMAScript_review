@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11장. 비동기와 fetch — 서버와 대화하기</title>
+  </head>
+  <body>
+
+    <h1>11장. 비동기와 fetch — 서버와 대화하기</h1>
+    <p>
+      <a href="index.html">&larr; 목차</a> &middot;
+      코드는 <code>js/ch11_fetch.js</code> 에 있습니다. F12 &rarr; Console 을 함께 여세요.
+    </p>
+    <hr />
+
+    <!-- 목록 가져오기는 Spring Boot 서버(localhost:8080)가 떠 있어야 합니다.
+         "서버가 꺼져 있으면" 버튼은 일부러 없는 주소를 부릅니다. -->
+    <p>
+      <button type="button" id="btnOrder">실행 순서 확인</button>
+      <button type="button" id="btnLoad">목록 가져오기 (GET)</button>
+      <button type="button" id="btnFail">404 를 만나면</button>
+      <button type="button" id="btnDown">서버가 꺼져 있으면</button>
+      <button type="button" id="btnPost">등록 요청 만들어 보기 (POST)</button>
+      <button type="button" id="btnClear">지우기</button>
+    </p>
+
+    <!-- 받아온 목록이 들어갈 자리 -->
+    <table border="1">
+      <thead>
+        <tr><th>이름</th><th>학번</th><th>주소</th><th>이메일</th></tr>
+      </thead>
+      <tbody id="studentTableBody"></tbody>
+    </table>
+
+    <!-- 실행 결과 — assets/demo.js 의 out() 이 여기에 찍는다 -->
+    <h2>실행 결과</h2>
+    <pre id="output"></pre>
+
+    <!-- out() · outClear() 헬퍼가 먼저 와야 한다 -->
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch11_fetch.js"></script>
+  </body>
+</html>

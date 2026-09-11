@@ -1,0 +1,52 @@
+<!doctype html>
+<!-- doctype — 이 문서는 HTML5 입니다. 반드시 맨 첫 줄 -->
+
+<html lang="ko">
+  <!-- lang="ko" — 이 문서의 언어. 화면 낭독기와 번역이 참고합니다 -->
+
+  <head>
+    <!-- head 안의 내용은 화면에 보이지 않습니다 -->
+
+    <meta charset="UTF-8" />
+    <!-- 글자 인코딩. 빠뜨리면 한글이 깨집니다 -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 모바일에서 화면 너비에 맞춰 보이게 합니다 -->
+
+    <meta name="description" content="HTML 문서의 기본 뼈대 예제" />
+
+    <title>2장. 문서의 기본 구조</title>
+    <!-- 브라우저 탭에 보이는 글자 -->
+
+    <link rel="stylesheet" href="css/ch02.css" />
+    <!-- 상대 경로 — css 폴더 안으로 들어가라 -->
+  </head>
+
+  <body>
+    <!-- body 안의 내용만 화면에 보입니다 -->
+
+    <h1>여기부터 화면에 보입니다</h1>
+
+    <p>
+      F12 → Elements 탭을 열어 html &gt; head / body 구조를 확인하세요.
+    </p>
+
+
+    <!-- ============================================
+         상대 경로 — 파일이 서로를 찾는 법
+         ============================================ -->
+
+    <p>
+      <a href="ch03_text.html">./ch03_text.html — 같은 폴더</a>
+    </p>
+
+    <p>
+      <a href="../index.html">../index.html — 한 단계 위 폴더</a>
+    </p>
+
+    <p>
+      <img src="../assets/sample.svg" alt="../assets 폴더의 이미지" width="120" />
+    </p>
+
+  </body>
+</html>

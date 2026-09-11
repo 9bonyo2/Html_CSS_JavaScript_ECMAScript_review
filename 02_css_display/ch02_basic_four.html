@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2장. 기본 4형제 — block · inline · inline-block · none</title>
+    <link rel="stylesheet" href="css/ch02_basic_four.css" />
+  </head>
+  <body>
+
+    <h1>2장. 기본 4형제 — block · inline · inline-block · none</h1>
+    <p><a href="index.html">&larr; 목차</a> &middot; 설명은 CSS_Flexbox_Grid_가이드.pdf 와 <code>css/ch02_basic_four.css</code> 주석을 보세요.</p>
+    <hr />
+
+
+    <!-- 2-1  display: block  —  span 인데 한 줄을 차지한다 -->
+    <p class="lbl">2-1 display: block</p>
+    <span class="box">사과</span>
+    <span class="box">바나나</span>
+
+    <!-- 2-2  display: inline  —  div 인데 옆으로 붙는다 -->
+    <p class="lbl">2-2 display: inline</p>
+    <div class="text">사과</div>
+    <div class="text">바나나</div>
+    <div class="text">포도</div>
+
+    <!-- 2-3  inline 의 함정
+         아래 span 에는 width 200px · height 100px · margin-top 50px 을 줬지만
+         전부 무시됩니다. -->
+    <p class="lbl">2-3 inline 의 함정 — width · height · margin-top 이 전부 무시됨</p>
+    <span class="trap">span</span>
+    <span class="trap">span</span>
+
+    <!-- 2-4  inline-block  —  옆으로 나란히 + 크기 지정 가능 -->
+    <p class="lbl">2-4 display: inline-block</p>
+    <span class="btn">버튼1</span>
+    <span class="btn">버튼2</span>
+    <span class="btn">버튼3</span>
+
+    <!-- 2-5  none 과 visibility: hidden -->
+    <p class="lbl">2-5 display: none — B의 자리까지 사라진다</p>
+    <div class="cell">A</div>
+    <div class="cell d-none">B</div>
+    <div class="cell">C</div>
+
+    <p class="lbl">2-5 visibility: hidden — B의 자리는 남는다</p>
+    <div class="cell">A</div>
+    <div class="cell v-hidden">B</div>
+    <div class="cell">C</div>
+
+  </body>
+</html>

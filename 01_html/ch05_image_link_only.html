@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5장. 이미지와 링크</title>
+  </head>
+  <body>
+
+    <!-- ============================================
+         이미지 — img (빈 요소)
+           src   이미지 파일의 경로
+           alt   이미지를 못 볼 때 대신 읽히는 글자 (필수)
+         ============================================ -->
+    <img src="../assets/sample.svg" alt="샘플 프로필 이미지" />
+
+    <!-- 크기를 지정할 수 있습니다 -->
+    <img src="../assets/sample.svg" alt="너비를 지정한 이미지" width="120" height="120" />
+
+    <!-- src 가 틀리면 alt 글자가 대신 보입니다 -->
+    <img src="없는파일.svg" alt="이 글자가 alt 입니다 — 이미지가 없으면 이게 보입니다" />
+
+    <!-- 장식용이라 읽을 필요가 없으면 alt 를 빈 값으로 둡니다 -->
+    <img src="../assets/sample.svg" alt="" />
+
+
+    <hr />
+
+
+    <!-- ============================================
+         링크 — a
+           href    이동할 주소
+           target  _blank 이면 새 탭
+           rel     새 탭으로 열 때 noopener 를 함께 씁니다
+         ============================================ -->
+
+    <!-- 같은 폴더의 다른 페이지 -->
+    <p><a href="ch04_list_table_only.html">같은 폴더의 다른 페이지로 이동</a></p>
+
+    <!-- 한 단계 위 폴더 -->
+    <p><a href="../index.html">한 단계 위 폴더로 이동</a></p>
+
+    <!-- 외부 사이트를 새 탭에서 -->
+    <p>
+      <a href="https://github.com/mysoyul/Html_CSS_JS_App" target="_blank" rel="noopener">
+        외부 사이트를 새 탭에서 열기
+      </a>
+    </p>
+
+    <!-- 같은 페이지 안의 특정 위치 (앵커) -->
+    <p><a href="#bottom">같은 페이지 안의 맨 아래로 이동</a></p>
+
+    <!-- 이미지를 링크로 감쌀 수도 있습니다 -->
+    <p>
+      <a href="../index.html">
+        <img src="../assets/sample.svg" alt="목차로 돌아가기" width="80" />
+      </a>
+    </p>
+
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <h2 id="bottom">여기가 #bottom 입니다</h2>
+    <p>위의 "맨 아래로 이동" 링크가 이 위치를 가리킵니다.</p>
+
+  </body>
+</html>

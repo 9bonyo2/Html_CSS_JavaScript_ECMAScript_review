@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7장. 단위와 색</title>
+    <link rel="stylesheet" href="css/ch07_unit_color.css" />
+  </head>
+  <body>
+
+    <h1>단위와 색</h1>
+
+    <!-- 크기 단위 -->
+    <div class="u px">width: 200px — 화면이 바뀌어도 고정</div>
+    <div class="u pct">width: 60% — 부모의 60%</div>
+    <div class="u rem">font-size: 1.4rem — html 기준</div>
+    <div class="u vw">width: 40vw — 화면 너비의 40%</div>
+    <div class="u vh">height: 15vh — 화면 높이의 15%</div>
+
+    <hr />
+
+    <!-- rem 과 em 의 차이 : em 은 부모 기준이라 누적된다 -->
+    <div class="rem-outer">
+      rem-outer (1.2rem)
+      <div class="rem-inner">rem-inner (1.2rem) — 여전히 html 기준</div>
+    </div>
+
+    <div class="em-outer">
+      em-outer (1.2em)
+      <div class="em-inner">em-inner (1.2em) — 부모 기준이라 더 커진다</div>
+    </div>
+
+    <hr />
+
+    <!-- 색 표기 네 가지 -->
+    <div class="swatches">
+      <div class="sw c1">red<br /><small>색 이름</small></div>
+      <div class="sw c2">#333333<br /><small>16진수</small></div>
+      <div class="sw c3">#333<br /><small>세 자리 축약</small></div>
+      <div class="sw c4">rgb(46,84,150)<br /><small>rgb</small></div>
+      <div class="sw c5">rgba(0,0,0,0.1)<br /><small>투명도 포함</small></div>
+    </div>
+  </body>
+</html>

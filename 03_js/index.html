@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 기초 예제</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>JavaScript 기초 예제</h1>
+      <p class="ref">03_JavaScript_기초.docx &middot; 12개 장</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>03_JavaScript_기초.docx 예제</h2>
+        <p>
+          각 장마다 HTML 페이지 하나와 JS 파일 하나가 짝을 이룹니다.
+          모든 페이지에 실행 결과 영역이 있어 개발자 도구를 열지 않아도 결과를 볼 수 있지만,
+          <b>F12 → Console 을 함께 열어두는 것을 권합니다.</b>
+        </p>
+        <div class="note">
+          <b>알아두기</b>
+          11장(fetch)은 반드시 <b>Live Server</b> 로 열어야 합니다.
+          파일을 더블클릭해 열면 <code>file:///</code> 주소가 되어 fetch 가 차단됩니다.
+        </div>
+        <ul class="toc">
+          <li><a href="ch01_console.html"><span class="num">1장</span>JavaScript 붙이기와 콘솔
+              <span class="desc">— script 위치, console.log / error / table</span></a></li>
+          <li><a href="ch02_variable.html"><span class="num">2장</span>변수 — const 와 let
+              <span class="desc">— 재할당, const 객체의 속성 변경</span></a></li>
+          <li><a href="ch03_datatype.html"><span class="num">3장</span>자료형과 템플릿 리터럴
+              <span class="desc">— typeof, trim, 백틱과 ${ }</span></a></li>
+          <li><a href="ch04_operator.html"><span class="num">4장</span>연산자
+              <span class="desc">— === vs ==, truthy/falsy, 삼항과 ||</span></a></li>
+          <li><a href="ch05_control.html"><span class="num">5장</span>조건문과 반복문
+              <span class="desc">— 모드 분기, early return, forEach/for-of/for</span></a></li>
+          <li><a href="ch06_function.html"><span class="num">6장</span>함수와 화살표 함수
+              <span class="desc">— 괄호의 차이, => 생략 규칙, 콜백</span></a></li>
+          <li><a href="ch07_object.html"><span class="num">7장</span>객체
+              <span class="desc">— 평평한 구조 vs detailRequest 중첩, JSON</span></a></li>
+          <li><a href="ch08_array.html"><span class="num">8장</span>배열과 배열 메서드
+              <span class="desc">— forEach, map/filter/find, 표 그리기와 중복</span></a></li>
+          <li><a href="ch09_dom.html"><span class="num">9장</span>DOM — 화면과 대화하기
+              <span class="desc">— 요소 찾기, value, textContent vs innerHTML</span></a></li>
+          <li><a href="ch10_event.html"><span class="num">10장</span>이벤트
+              <span class="desc">— preventDefault 비교, click/input/change</span></a></li>
+          <li><a href="ch11_fetch.html"><span class="num">11장</span>비동기와 fetch
+              <span class="desc">— 실행 순서, then 체인, response.ok 함정, POST</span></a></li>
+          <li><a href="ch12_error.html"><span class="num">12장</span>오류 메시지 읽는 법
+              <span class="desc">— 대표 오류 6종을 직접 발생시켜 보기</span></a></li>
+        </ul>
+      </section>
+
+      <section class="block">
+        <h2>JS 만 담은 파일</h2>
+        <p>설명과 데모 상자를 걷어내고 <b>그 장의 js 파일이 동작하는 데 필요한 것만</b> 남긴 파일입니다.
+           교재용 <code>base.css</code> 를 붙이지 않았으므로 브라우저 기본 모양입니다.
+           JS 는 위의 교재 페이지와 <b>같은 <code>js/</code> 파일을 함께 씁니다.</b>
+           F12 &rarr; Console 을 함께 열어 두세요.</p>
+        <ul class="toc">
+          <li><a href="ch01_console_only.html"><span class="num">1장</span>ch01_console_only.html
+              <span class="desc">— console.log · error · table</span></a></li>
+          <li><a href="ch02_variable_only.html"><span class="num">2장</span>ch02_variable_only.html
+              <span class="desc">— const 재할당 vs 객체 속성 변경</span></a></li>
+          <li><a href="ch03_datatype_only.html"><span class="num">3장</span>ch03_datatype_only.html
+              <span class="desc">— 문자열 메서드, 템플릿 리터럴, trim() 과 null</span></a></li>
+          <li><a href="ch04_operator_only.html"><span class="num">4장</span>ch04_operator_only.html
+              <span class="desc">— === 와 ==, truthy/falsy, 삼항 · || · ?.</span></a></li>
+          <li><a href="ch05_control_only.html"><span class="num">5장</span>ch05_control_only.html
+              <span class="desc">— 모드 전환, early return, 반복문 세 가지</span></a></li>
+          <li><a href="ch06_function_only.html"><span class="num">6장</span>ch06_function_only.html
+              <span class="desc">— 세 가지 함수 표기, return 누락, 콜백, 괄호 실수</span></a></li>
+          <li><a href="ch07_object_only.html"><span class="num">7장</span>ch07_object_only.html
+              <span class="desc">— 평평한 구조 vs 중첩, JSON.stringify / parse</span></a></li>
+          <li><a href="ch08_array_only.html"><span class="num">8장</span>ch08_array_only.html
+              <span class="desc">— forEach, map · filter · find, 표 그리기와 중복</span></a></li>
+          <li><a href="ch09_dom_only.html"><span class="num">9장</span>ch09_dom_only.html
+              <span class="desc">— 요소 찾기, value, textContent vs innerHTML, null 오류</span></a></li>
+          <li><a href="ch10_event_only.html"><span class="num">10장</span>ch10_event_only.html
+              <span class="desc">— submit 과 preventDefault, input · change · click</span></a></li>
+          <li><a href="ch11_fetch_only.html"><span class="num">11장</span>ch11_fetch_only.html
+              <span class="desc">— 실행 순서, GET · POST, 404 와 Failed to fetch</span></a></li>
+          <li><a href="ch12_error_only.html"><span class="num">12장</span>ch12_error_only.html
+              <span class="desc">— ReferenceError · TypeError · SyntaxError 재현</span></a></li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

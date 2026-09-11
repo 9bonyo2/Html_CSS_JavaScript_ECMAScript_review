@@ -1,0 +1,39 @@
+/* ===== 12장. 반응형과 미디어 쿼리 ===== */
+
+.resp, .resp-auto {
+    display: grid;
+    gap: 12px;
+}
+.resp i, .resp-auto i {
+    padding: 22px 8px;
+    border-radius: 4px;
+    background-color: #dce6f1;
+    text-align: center;
+    font-style: normal;
+    font-family: Consolas, monospace;
+}
+
+/* 기본(넓은 화면) : 3열 */
+.resp { grid-template-columns: repeat(3, 1fr); }
+
+.width-label {
+    margin: 8px 0 0;
+    color: #777;
+    font-size: 0.85rem;
+}
+.width-label::before { content: "[넓은 화면 · 3열] "; color: #2e5496; }
+
+/* 미디어 쿼리 없이도 반응형 (실습 3-3 방식) */
+.resp-auto { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+
+/* --- 태블릿 --- */
+@media (max-width: 768px) {
+    .resp { grid-template-columns: repeat(2, 1fr); }
+    .width-label::before { content: "[중간 화면 · 2열] "; color: #e8a33d; }
+}
+
+/* --- 모바일 --- */
+@media (max-width: 480px) {
+    .resp { grid-template-columns: 1fr; }
+    .width-label::before { content: "[좁은 화면 · 1열] "; color: #c0504d; }
+}

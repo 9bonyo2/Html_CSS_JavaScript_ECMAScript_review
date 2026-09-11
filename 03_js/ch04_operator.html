@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4장. 연산자</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>4장. 연산자</h1>
+      <p class="ref">4장 &middot; 03_JavaScript_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>=== 를 쓰세요</h2>
+        <pre>1 === "1"   // false — 값과 자료형이 모두 같아야 참
+1 ==  "1"   // true  — 자료형을 맞춰본 뒤 비교 (혼란의 원인)</pre>
+        <div class="note">
+          <b>알아두기</b>
+          <code>==</code> 는 쓰지 마세요. <code>===</code> 를 쓰면
+          예상 밖의 결과가 아예 생기지 않습니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>참 같은 값, 거짓 같은 값</h2>
+        <table class="ex">
+          <tr><th>거짓으로 취급 (falsy)</th><th>나머지는 전부 참 (truthy)</th></tr>
+          <tr>
+            <td>false, 0, "" (빈 문자열), null, undefined, NaN</td>
+            <td>"0", "false", [] (빈 배열), {} (빈 객체) 도 모두 참</td>
+          </tr>
+        </table>
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          빈 배열 <code>[]</code> 은 참입니다. 배열이 비었는지 보려면
+          <code>list.length === 0</code> 을 써야 합니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>삼항 연산자와 || 기본값</h2>
+        <pre>student.detail ? student.detail.address : "-"     // 삼항 연산자
+errorData.message || "학생 등록에 실패했습니다."   // || 기본값
+student?.detail?.address ?? "-"                   // 최신 문법</pre>
+
+        <p>
+          <button type="button" id="btnCompare">=== 와 == 비교</button>
+          <button type="button" id="btnTruthy">truthy / falsy</button>
+          <button type="button" id="btnTernary">삼항 · || · ?.</button>
+          <button type="button" id="btnClear">지우기</button>
+        </p>
+      </section>
+    
+      <section class="block">
+        <h2>실행 결과</h2>
+        <p style="font-size:0.85rem; color:#777;">
+          아래 내용은 <code>out()</code> 으로 찍은 것이며, F12 → Console 에도 같이 나옵니다.
+        </p>
+        <pre id="output"></pre>
+      </section>
+
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch04_operator.js"></script>
+  </body>
+</html>

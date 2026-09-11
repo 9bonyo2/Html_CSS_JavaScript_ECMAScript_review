@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11장. transition 과 hover</title>
+    <link rel="stylesheet" href="css/ch11_transition.css" />
+  </head>
+  <body>
+
+    <h1>transition 과 hover</h1>
+
+    <!-- transition 은 :hover 가 아니라 평소 상태에 씁니다 -->
+    <div class="tr-nav">
+      <a class="good" href="#">올바른 방식 — 평소 상태에 transition (뗄 때도 부드럽다)</a>
+      <a class="bad" href="#">흔한 실수 — :hover 에만 transition (뗄 때 툭 끊긴다)</a>
+      <a class="none" href="#">transition 없음 — 즉시 바뀐다</a>
+    </div>
+
+    <hr />
+
+    <!-- 시간에 따른 느낌 차이 -->
+    <div class="tr-nav">
+      <a class="t-fast" href="#">0.1s — 거의 즉시</a>
+      <a class="good" href="#">0.3s — 자연스럽다</a>
+      <a class="t-slow" href="#">2s — 답답하다</a>
+    </div>
+
+    <hr />
+
+    <!-- 카드가 떠오르는 효과 -->
+    <div class="card-row">
+      <div class="hcard">
+        <div class="img">이미지 자리</div>
+        <p>마우스를 올려 보세요</p>
+      </div>
+      <div class="hcard">
+        <div class="img">이미지 자리</div>
+        <p>그림자와 위치가 함께 바뀝니다</p>
+      </div>
+    </div>
+  </body>
+</html>

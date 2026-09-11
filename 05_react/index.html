@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React 기초 예제</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>React 기초 예제</h1>
+      <p class="ref">06_React_기초.docx &middot; 컴포넌트 · JSX · props/state · Hooks</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>설치 없이 브라우저에서 바로 돌아갑니다</h2>
+        <p>
+          각 장은 <b>HTML 한 개 + JSX 한 개</b>로 되어 있습니다.
+          <code>npm install</code> 도 <code>node_modules</code> 도 필요 없습니다.
+          Live Server 로 열기만 하면 됩니다.
+        </p>
+        <ul class="toc">
+          <li><a href="ch02_component.html"><span class="num">2장</span>컴포넌트
+              <span class="desc">— 화면을 돌려주는 함수, 대문자 규칙, 프래그먼트, 컴포넌트 트리</span></a></li>
+          <li><a href="ch03_jsx.html"><span class="num">3장</span>JSX 란 무엇인가
+              <span class="desc">— createElement 와 나란히 비교, 중괄호, className · style</span></a></li>
+          <li><a href="ch04_props_state.html"><span class="num">4장</span>Props 와 State
+              <span class="desc">— 값과 함수를 내려 주기, 자식이 부모에게 알리는 법</span></a></li>
+          <li><a href="ch05_event.html"><span class="num">5장</span>이벤트 핸들링
+              <span class="desc">— 함수를 넘기기 vs 부르기, preventDefault, 위임이 사라진다</span></a></li>
+          <li><a href="ch06_ref.html"><span class="num">6장</span>ref — DOM 다루기
+              <span class="desc">— 포커스와 스크롤, state 와 ref 의 차이</span></a></li>
+          <li><a href="ch07_map.html"><span class="num">7장</span>컴포넌트 반복 — map()
+              <span class="desc">— key 를 id 로 줄 때와 index 로 줄 때를 나란히 비교</span></a></li>
+          <li><a href="ch08_hooks.html"><span class="num">8장</span>React Hooks
+              <span class="desc">— 같은 컴포넌트를 클래스형과 함수형으로 나란히</span></a></li>
+          <li><a href="ch09_usestate.html"><span class="num">9장</span>useState
+              <span class="desc">— 불변성, 즉시 반영되지 않음, 입력칸 여럿을 함수 하나로</span></a></li>
+          <li><a href="ch10_useeffect.html"><span class="num">10장</span>useEffect
+              <span class="desc">— [] 와 [값], 정리 함수로 타이머 취소</span></a></li>
+          <li><a href="ch11_useref.html"><span class="num">11장</span>useRef 와 커스텀 훅
+              <span class="desc">— 이전 값·렌더 횟수 기억, useMessage() 만들기</span></a></li>
+        </ul>
+        <p style="font-size:0.9rem; color:#777;">
+          1장(React 라이브러리란)은 개념 설명이라 예제 페이지가 없습니다.
+          선언형이 무엇인지는 4장에서 직접 확인할 수 있습니다.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>어떻게 설치 없이 도는가</h2>
+        <p>각 HTML 은 아래 두 가지로 Vite 가 하던 일을 대신합니다.</p>
+        <table class="ex">
+          <tr><th>Vite 가 하는 일</th><th>여기서는</th></tr>
+          <tr>
+            <td><code>node_modules</code> 에서 react 를 찾아 준다</td>
+            <td><code>&lt;script type="importmap"&gt;</code> 로 <code>react</code> 를
+                <code>esm.sh</code> 주소에 연결</td>
+          </tr>
+          <tr>
+            <td>JSX 를 JavaScript 로 변환한다</td>
+            <td><code>@babel/standalone</code> 이 브라우저에서 변환</td>
+          </tr>
+        </table>
+        <div class="note">
+          <b>알아두기</b>
+          이 방식은 <b>학습용</b>입니다. Babel 파일이 3MB 라 첫 로딩이 느리고,
+          Console 에 "in-browser transformer" 경고가 뜹니다.
+          실무에서는 Vite 가 미리 변환해 둡니다 —
+          그 과정은 <code>06_React기초_실습_단계별.docx</code> 와
+          <code>student_react_first</code> 프로젝트에서 다룹니다.
+        </div>
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          파일을 더블클릭해 <code>file://</code> 로 열면 동작하지 않습니다.
+          Babel 이 <code>js/*.jsx</code> 를 XHR 로 받아오기 때문에 CORS 로 막힙니다.
+          반드시 <b>Live Server</b> 로 여세요.
+        </div>
+        <div class="check">
+          <b>확인하기</b>
+          모든 예제는 <code>React 19.2.0</code> 을 씁니다.
+          <code>student_react_first</code> 프로젝트와 같은 버전이라
+          여기서 익힌 코드가 그대로 통합니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>실습 프로젝트로 넘어가기</h2>
+        <p>
+          이 폴더의 <code>step/</code> 에는 5부 실습(<code>06_React기초_실습_단계별.docx</code>)에서
+          쓰는 단계별 코드가 들어 있습니다.
+          개념을 익힌 뒤 그 문서로 넘어가면 <code>student_ecma</code> 를 React 로 옮기는
+          전 과정을 따라갈 수 있습니다.
+        </p>
+        <ul class="toc">
+          <li><a href="step/README.md"><span class="num">실습</span>step/ 폴더
+              <span class="desc">— 5부 실습의 단계별 코드 6개</span></a></li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

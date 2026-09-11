@@ -1,0 +1,36 @@
+/* ===== 부록. 레시피 · 점검표 · 용어 ===== */
+
+.lbl {
+    margin: 14px 0 6px;
+    color: #777777;
+    font-size: 0.85rem;
+}
+.lbl:first-child { margin-top: 0; }
+
+/* 5. 태그·칩 나열 */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.tags span {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: #eef1f5;
+    color: #555555;
+    font-size: 0.82rem;
+}
+
+/* 부록 B — outline 디버깅 스위치 (체크박스로 켜고 끕니다) */
+.outline-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+/* :has() 로 체크 상태를 읽어 페이지 전체에 outline 을 그립니다 */
+body:has(#ot:checked) * {
+    outline: 1px solid red;
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3장. 변수 선언 — var, let, const</title>
+  </head>
+  <body>
+
+    <h1>3장. 변수 선언 — var, let, const</h1>
+    <p>
+      <a href="index.html">&larr; 목차</a> &middot;
+      코드는 <code>js/ch03_variable.js</code> 에 있습니다. F12 &rarr; Console 을 함께 여세요.
+    </p>
+    <hr />
+
+    <!-- var 와 let 의 유효 범위·재선언 차이, 반복문 + setTimeout 의 고전 문제 -->
+    <p>
+      <button type="button" id="btnScope">유효 범위 비교 실행</button>
+      <button type="button" id="btnRedeclare">재선언 비교 실행</button>
+      <button type="button" id="btnConst">const 동작 확인</button>
+      <button type="button" id="btnTimer">반복문 + setTimeout 실행</button>
+      <button type="button" id="btnClear">지우기</button>
+    </p>
+
+    <!-- 실행 결과 — assets/demo.js 의 out() 이 여기에 찍는다 -->
+    <h2>실행 결과</h2>
+    <pre id="output"></pre>
+
+    <!-- out() · outClear() 헬퍼가 먼저 와야 한다 -->
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch03_variable.js"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8장. 시맨틱 태그와 접근성</title>
+  </head>
+  <body>
+
+    <!-- ============================================
+         div 대신 이름 있는 상자
+         생김새는 div 와 똑같지만 "무슨 역할인지"가 이름에 담깁니다.
+         화면 낭독기와 검색 엔진이 이 이름을 읽습니다.
+         ============================================ -->
+
+    <header>
+      header — 머리 부분
+
+      <nav>
+        nav — 메뉴
+        <ul>
+          <li><a href="#intro">소개</a></li>
+          <li><a href="#projects">프로젝트</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- main 은 페이지의 주요 내용. 한 문서에 한 번만 -->
+
+      <section id="intro">
+        <h2>section — 주제가 있는 덩어리</h2>
+        <p>제목과 함께 쓰는 것이 원칙입니다.</p>
+      </section>
+
+      <section id="projects">
+        <h2>프로젝트</h2>
+
+        <article>
+          <h3>article — 그것만 떼어내도 말이 되는 조각</h3>
+          <p>게시글, 뉴스 기사, 상품 카드 같은 것입니다.</p>
+        </article>
+
+        <article>
+          <h3>article 두 번째</h3>
+          <p>같은 종류의 조각이 반복될 때 씁니다.</p>
+        </article>
+      </section>
+
+      <aside>
+        aside — 곁다리 정보. 본문에서 빠져도 되는 것
+      </aside>
+    </main>
+
+    <footer>
+      footer — 바닥. 저작권, 연락처 등
+    </footer>
+
+
+    <hr />
+
+
+    <!-- ============================================
+         접근성 — 최소한 이것만은
+
+         (1) 모든 img 에 alt 를 씁니다
+         (2) 모든 input 에 짝이 되는 label 을 답니다
+         (3) html 태그에 lang="ko" 를 씁니다
+         (4) 제목은 h1 → h2 → h3 순서로 건너뛰지 않고 내려갑니다
+         ============================================ -->
+
+    <!-- label 이 연결된 경우 — 글자를 클릭해도 커서가 간다 -->
+    <p>
+      <label for="good">이름 (label 연결됨):</label>
+      <input type="text" id="good" name="good" />
+    </p>
+
+    <!-- label 이 없는 경우 — 글자를 클릭해도 반응이 없다 -->
+    <p>
+      <span>이름 (label 없음):</span>
+      <input type="text" id="bad" name="bad" />
+    </p>
+
+    <!-- label 로 감싸는 방법도 있다. 이때는 for 가 없어도 된다 -->
+    <p>
+      <label>이메일: <input type="email" name="email" /></label>
+    </p>
+
+    <!-- 이미지에는 alt 를 -->
+    <p>
+      <img src="../assets/sample.svg" alt="샘플 프로필 이미지" width="80" />
+    </p>
+
+    <!-- 장식용 이미지는 alt 를 빈 값으로 -->
+    <p>
+      <img src="../assets/sample.svg" alt="" width="40" />
+    </p>
+
+  </body>
+</html>

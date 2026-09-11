@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2장. 변수 — const 와 let</title>
+  </head>
+  <body>
+
+    <h1>2장. 변수 — const 와 let</h1>
+    <p>
+      <a href="index.html">&larr; 목차</a> &middot;
+      코드는 <code>js/ch02_variable.js</code> 에 있습니다. F12 &rarr; Console 을 함께 여세요.
+    </p>
+    <hr />
+
+    <!-- const 는 재할당만 막습니다. 객체 "안의 값"은 바꿀 수 있습니다 -->
+    <p>
+      <button type="button" id="btnReassign">const 재할당 시도 (오류 발생)</button>
+      <button type="button" id="btnMutate">const 객체 속성 변경 (성공)</button>
+      <button type="button" id="btnClear">지우기</button>
+    </p>
+
+    <!-- 실행 결과 — assets/demo.js 의 out() 이 여기에 찍는다 -->
+    <h2>실행 결과</h2>
+    <pre id="output"></pre>
+
+    <!-- out() · outClear() 헬퍼가 먼저 와야 한다 -->
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch02_variable.js"></script>
+  </body>
+</html>

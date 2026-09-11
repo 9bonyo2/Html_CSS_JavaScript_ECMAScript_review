@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12장. 오류 메시지 읽는 법</title>
+  </head>
+  <body>
+
+    <h1>12장. 오류 메시지 읽는 법</h1>
+    <p>
+      <a href="index.html">&larr; 목차</a> &middot;
+      코드는 <code>js/ch12_error.js</code> 에 있습니다. F12 &rarr; Console 을 함께 여세요.
+    </p>
+    <hr />
+
+    <!-- 각 버튼은 일부러 오류를 냅니다.
+         F12 → Console 에서 오류 이름과 줄 번호를 확인하세요. -->
+    <p>
+      <button type="button" id="e1">ReferenceError</button>
+      <button type="button" id="e2">TypeError (null)</button>
+      <button type="button" id="e3">TypeError (undefined)</button>
+      <button type="button" id="e4">TypeError (not a function)</button>
+      <button type="button" id="e5">const 재할당</button>
+      <button type="button" id="e6">SyntaxError</button>
+      <button type="button" id="btnClear">지우기</button>
+    </p>
+
+    <!-- 실행 결과 — assets/demo.js 의 out() 이 여기에 찍는다 -->
+    <h2>실행 결과</h2>
+    <pre id="output"></pre>
+
+    <!-- out() · outClear() 헬퍼가 먼저 와야 한다 -->
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch12_error.js"></script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7장. div · span 과 class · id</title>
+  </head>
+  <body>
+
+    <!-- ============================================
+         의미 없는 상자 두 개
+           div   블록 — 한 줄 전체를 차지한다
+           span  인라인 — 글자 흐름을 끊지 않는다
+         둘 다 "의미"는 없습니다. 묶어 두는 그릇일 뿐입니다.
+         ============================================ -->
+    <div>div — 한 줄 전체를 차지합니다</div>
+    <div>div — 그래서 세로로 쌓입니다</div>
+
+    <p>문장 속의 <span>span</span> 은 흐름을 끊지 않습니다.</p>
+
+
+    <hr />
+
+
+    <!-- ============================================
+         class — 여러 개에 같은 이름을 붙일 수 있다
+         CSS 로 한꺼번에 꾸미거나 JavaScript 로 한꺼번에 고를 때 쓴다
+         ============================================ -->
+    <div class="card">class="card" ①</div>
+    <div class="card">class="card" ②</div>
+    <div class="card">class="card" ③</div>
+
+    <!-- class 는 여러 개를 띄어쓰기로 붙일 수 있다 -->
+    <div class="card featured">class="card featured" — 이름 두 개</div>
+
+
+    <!-- ============================================
+         id — 문서 안에서 하나뿐이어야 한다
+         JavaScript 가 getElementById 로 콕 집어 찾을 때 쓴다
+         ============================================ -->
+    <div id="studentTable">id="studentTable"</div>
+    <form id="studentForm">
+      <input type="text" id="name" name="name" />
+    </form>
+
+
+    <hr />
+
+
+    <!-- ============================================
+         이름 짓기 — 모양이 아니라 역할로
+           (X) class="red-box"      나중에 파란색이 되면 이름이 거짓말이 된다
+           (O) class="error-message"
+         ============================================ -->
+    <div class="form-container">
+      <div class="form-group">
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" />
+        <span class="error-message">올바른 이메일 형식이 아닙니다.</span>
+      </div>
+    </div>
+
+
+    <!-- ============================================
+         3부에서 쓰는 실제 구조
+         ============================================ -->
+    <div class="table-container">
+      <h2>학생 목록</h2>
+      <div id="loadingMessage" class="loading">로딩 중...</div>
+      <table id="studentTable">
+        <tbody id="studentTableBody"></tbody>
+      </table>
+    </div>
+
+  </body>
+</html>

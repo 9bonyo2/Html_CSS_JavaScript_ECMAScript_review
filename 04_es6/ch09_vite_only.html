@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9장. Vite 로 개발 환경 만들기</title>
+  </head>
+  <body>
+
+    <h1>9장. Vite 로 개발 환경 만들기</h1>
+    <p>
+      <a href="index.html">&larr; 목차</a> &middot;
+      코드는 <code>js/ch09_vite.js</code> 에 있습니다. F12 &rarr; Console 을 함께 여세요.
+    </p>
+    <hr />
+
+    <!-- 이 장에는 버튼이 없습니다. 페이지를 열면 바로 실행됩니다.
+         import.meta 는 모듈 안에서만 쓸 수 있어 type="module" 이 필요합니다.
+         import.meta.env 는 Vite 가 채워 넣는 값이라 여기서는 undefined 입니다. -->
+
+    <!-- 실행 결과 — assets/demo.js 의 out() 이 여기에 찍는다 -->
+    <h2>실행 결과</h2>
+    <pre id="output"></pre>
+
+    <!-- out() · outClear() 헬퍼가 먼저 와야 한다 -->
+    <script src="../assets/demo.js"></script>
+    <script type="module" src="js/ch09_vite.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+/* ===== 6장. flex 와 grid, 무엇을 쓸까 ===== */
+
+.lbl {
+    margin: 14px 0 6px;
+    color: #777777;
+    font-size: 0.85rem;
+}
+.lbl:first-child { margin-top: 0; }
+
+/* --- 줄 맞춤 비교 --- */
+.cmp-flex, .cmp-grid {
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px dashed #b7c3d4;
+    background-color: #ffffff;
+}
+.cmp-flex i, .cmp-grid i {
+    padding: 16px 8px;
+    background-color: #dce6f1;
+    text-align: center;
+    font-style: normal;
+}
+
+/* flex : 아이템 크기가 배치를 결정 → 마지막 줄이 어긋난다 */
+.cmp-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.cmp-flex i { flex: 0 0 140px; }
+
+/* grid : 칸을 먼저 그린다 → 언제나 맞는다 */
+.cmp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* --- 함께 쓰기 : 큰 구조는 grid, 그 안은 flex --- */
+.page {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 10px;
+}
+.p-side {
+    padding: 14px;
+    background-color: #dce6f1;
+}
+.p-main {
+    padding: 14px;
+    background-color: #eef1f5;
+}
+.p-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    background-color: #333333;
+    color: #ffffff;
+}

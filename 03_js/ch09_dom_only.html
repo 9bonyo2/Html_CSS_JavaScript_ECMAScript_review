@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9장. DOM — 화면과 대화하기</title>
+  </head>
+  <body>
+
+    <h1>9장. DOM — 화면과 대화하기</h1>
+    <p>
+      <a href="index.html">&larr; 목차</a> &middot;
+      코드는 <code>js/ch09_dom.js</code> 에 있습니다. F12 &rarr; Console 을 함께 여세요.
+    </p>
+    <hr />
+
+    <!-- js 가 찾아 쓰는 요소들 -->
+    <form id="domForm" onsubmit="return false;">
+      <label for="nameInput">이름:</label>
+      <input type="text" name="name" id="nameInput" value="홍길동" />
+    </form>
+
+    <p id="target">여기 글자가 바뀝니다.</p>
+
+    <p>
+      <button type="button" id="btnFind">요소 찾기</button>
+      <button type="button" id="btnValue">value 읽기 · 쓰기</button>
+      <button type="button" id="btnText">textContent vs innerHTML</button>
+      <button type="button" id="btnStyle">style 바꾸기</button>
+      <button type="button" id="btnCreate">요소 만들어 붙이기</button>
+      <button type="button" id="btnNull">null 오류 재현</button>
+      <button type="button" id="btnClear">지우기</button>
+    </p>
+
+    <!-- 만들어 붙인 요소가 들어갈 자리 -->
+    <ul id="createTarget"></ul>
+
+    <!-- 실행 결과 — assets/demo.js 의 out() 이 여기에 찍는다 -->
+    <h2>실행 결과</h2>
+    <pre id="output"></pre>
+
+    <!-- out() · outClear() 헬퍼가 먼저 와야 한다 -->
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch09_dom.js"></script>
+  </body>
+</html>

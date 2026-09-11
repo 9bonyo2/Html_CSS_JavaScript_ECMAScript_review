@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "홍길동",
+    "studentNumber": "20241234",
+    "detail": {
+      "address": "서울시 강남구 테헤란로 123",
+      "phoneNumber": "010-1234-5678",
+      "email": "hong@test.com",
+      "dateOfBirth": "2000-01-01"
+    }
+  },
+  {
+    "id": 2,
+    "name": "김코딩",
+    "studentNumber": "20241235",
+    "detail": {
+      "address": "부산시 해운대구 센텀중앙로 45",
+      "phoneNumber": "010-2222-3333",
+      "email": null,
+      "dateOfBirth": "2001-05-20"
+    }
+  },
+  {
+    "id": 3,
+    "name": "이자바",
+    "studentNumber": "20241236",
+    "detail": null
+  }
+]

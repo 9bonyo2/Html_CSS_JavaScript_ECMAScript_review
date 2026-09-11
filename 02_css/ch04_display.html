@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4장. display — 모든 배치의 출발점</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+    <link rel="stylesheet" href="css/ch04_display.css" />
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>4장. display — 모든 배치의 출발점</h1>
+      <p class="ref">4장 &middot; 02_CSS_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>block · inline · inline-block</h2>
+        <div class="demo">
+          <p class="lbl">display: block — 한 줄을 통째로. width 가 먹힘</p>
+          <span class="d-block">A</span><span class="d-block">B</span>
+
+          <p class="lbl">display: inline — 옆으로 흐름. width 무시</p>
+          <span class="d-inline">A</span><span class="d-inline">B</span>
+
+          <p class="lbl">display: inline-block — 옆으로 흐르면서 width 도 먹힘</p>
+          <span class="d-ib">A</span><span class="d-ib">B</span>
+        </div>
+
+        <table class="ex">
+          <tr><th>값</th><th>동작</th><th>대표 태그 / 쓰임</th></tr>
+          <tr><td>block</td><td>한 줄 차지. width/height 가능</td><td>div, p, h1, section</td></tr>
+          <tr><td>inline</td><td>내용만큼. width/height 무시</td><td>span, a, strong</td></tr>
+          <tr><td>inline-block</td><td>옆으로 흐르며 크기 지정 가능</td><td>나란한 버튼</td></tr>
+          <tr><td>none</td><td>완전히 사라짐. 자리도 없음</td><td>실습 3-10 취소 버튼</td></tr>
+          <tr><td>flex</td><td>한 방향 배치 (5장)</td><td>메뉴, 중앙 정렬</td></tr>
+          <tr><td>grid</td><td>격자 배치 (6장)</td><td>카드 목록</td></tr>
+        </table>
+      </section>
+
+      <section class="block">
+        <h2>none 과 hidden 의 차이</h2>
+        <div class="demo">
+          <p class="lbl">display: none — 자리까지 사라집니다 (가운데 B 가 없음)</p>
+          <span class="d-ib">A</span><span class="d-ib d-none">B</span><span class="d-ib">C</span>
+
+          <p class="lbl">visibility: hidden — 안 보이지만 자리는 남습니다</p>
+          <span class="d-ib">A</span><span class="d-ib v-hidden">B</span><span class="d-ib">C</span>
+        </div>
+
+        <div class="note">
+          <b>알아두기</b>
+          실습 3-10에서 취소 버튼을 감출 때 none 을 쓰는 이유는,
+          버튼이 빠졌을 때 빈칸이 남지 않게 하기 위해서입니다.
+        </div>
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          flex 와 grid 는 반드시 부모에 선언합니다. 자식에게 주면 아무 일도 없습니다.
+          실습 1-5의 "상자들이 세로로 쌓여 있다"가 이 경우입니다.
+        </div>
+      </section>
+    
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

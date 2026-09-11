@@ -1,0 +1,102 @@
+/* ===== 4장. display: flex ===== */
+
+.lbl {
+    margin: 14px 0 6px;
+    color: #777777;
+    font-size: 0.85rem;
+}
+.lbl:first-child { margin-top: 0; }
+
+/* --- 정렬 실험용 상자 --- */
+.fbox {
+    display: flex;                 /* 이 줄이 전부입니다 */
+    gap: 6px;
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px dashed #b7c3d4;
+    background-color: #ffffff;
+}
+.fbox i {
+    padding: 8px 16px;
+    background-color: #dce6f1;
+    font-style: normal;
+}
+.fbox.tall   { height: 90px; }
+.fbox.narrow { width: 260px; }
+
+/* --- 4-3 flex-direction --- */
+.dir-row-rev { flex-direction: row-reverse; }
+.dir-col     { flex-direction: column; align-items: flex-start; }
+.dir-col-rev { flex-direction: column-reverse; align-items: flex-start; }
+
+/* --- 4-4 justify-content : 주축 정렬 --- */
+.jc-start   { justify-content: flex-start; }
+.jc-end     { justify-content: flex-end; }
+.jc-center  { justify-content: center; }
+.jc-between { justify-content: space-between; }
+.jc-around  { justify-content: space-around; }
+.jc-evenly  { justify-content: space-evenly; }
+
+/* --- 4-5 align-items : 교차축 정렬 --- */
+.ai-stretch { align-items: stretch; }
+.ai-start   { align-items: flex-start; }
+.ai-center  { align-items: center; }
+.ai-end     { align-items: flex-end; }
+
+/* 완전 중앙 정렬 — 이 세 줄 */
+.center-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* --- 4-6 flex-wrap --- */
+.fbox.wrap { flex-wrap: wrap; }
+
+/* --- 4-7 flex-grow --- */
+.all-grow i          { flex: 1; }
+.second-grow i:nth-child(2) { flex: 1; }
+.ratio i:nth-child(1) { flex: 1; }
+.ratio i:nth-child(2) { flex: 2; }
+.ratio i:nth-child(3) { flex: 1; }
+
+/* --- 4-8 실전 패턴 --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 40px;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.icon-label {
+    display: flex;
+    align-items: center;          /* 아이콘과 글자의 세로 중심을 맞춘다 */
+    gap: 8px;
+}
+.icon-label .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #c0504d;
+    color: #ffffff;
+}
+
+.layout  { display: flex; gap: 10px; }
+.sidebar { width: 250px; padding: 20px 10px; background-color: #dce6f1; }
+.content { flex: 1; padding: 20px 10px; background-color: #eef1f5; }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 260px;
+}

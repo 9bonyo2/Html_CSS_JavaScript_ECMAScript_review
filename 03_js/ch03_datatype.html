@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3장. 자료형과 템플릿 리터럴</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>3장. 자료형과 템플릿 리터럴</h1>
+      <p class="ref">3장 &middot; 03_JavaScript_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>여섯 가지 자료형</h2>
+        <table class="ex">
+          <tr><th>자료형</th><th>예</th><th>설명</th></tr>
+          <tr><td>문자열</td><td>"홍길동"</td><td>따옴표로 감쌈</td></tr>
+          <tr><td>숫자</td><td>42, 3.14</td><td>정수와 소수의 구분이 없음</td></tr>
+          <tr><td>불리언</td><td>true, false</td><td>참/거짓</td></tr>
+          <tr><td>null</td><td>null</td><td>개발자가 일부러 비워 둔 것</td></tr>
+          <tr><td>undefined</td><td>undefined</td><td>아직 아무도 채우지 않은 상태</td></tr>
+          <tr><td>객체</td><td>{ name: "홍길동" }</td><td>7장에서</td></tr>
+        </table>
+      </section>
+
+      <section class="block">
+        <h2>템플릿 리터럴 — 백틱 문자열</h2>
+        <pre>const url1 = API_BASE_URL + "/api/students/" + id;   // 예전 방식
+const url2 = `${API_BASE_URL}/api/students/${id}`;   // 템플릿 리터럴</pre>
+
+        <div class="note">
+          <b>알아두기</b>
+          백틱(`)은 키보드 숫자 1 왼쪽, Tab 위에 있는 키입니다. 작은따옴표(')와 다릅니다.
+        </div>
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          백틱 안에 <code>//</code> 주석을 넣으면 주석이 아니라 그냥 글자가 되어
+          화면에 그대로 출력됩니다. 실습 3-6에서 실제로 겪는 문제입니다.
+        </div>
+
+        <p>
+          <button type="button" id="btnStr">문자열 메서드</button>
+          <button type="button" id="btnTpl">템플릿 리터럴</button>
+          <button type="button" id="btnTrim">trim() 과 null 오류</button>
+          <button type="button" id="btnClear">지우기</button>
+        </p>
+      </section>
+    
+      <section class="block">
+        <h2>실행 결과</h2>
+        <p style="font-size:0.85rem; color:#777;">
+          아래 내용은 <code>out()</code> 으로 찍은 것이며, F12 → Console 에도 같이 나옵니다.
+        </p>
+        <pre id="output"></pre>
+      </section>
+
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch03_datatype.js"></script>
+  </body>
+</html>

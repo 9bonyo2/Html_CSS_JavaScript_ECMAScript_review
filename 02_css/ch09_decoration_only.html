@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9장. 배경 · 테두리 · 그림자</title>
+    <link rel="stylesheet" href="css/ch09_decoration.css" />
+  </head>
+  <body>
+
+    <h1>배경 · 테두리 · 그림자</h1>
+
+    <!-- 테두리와 모서리 -->
+    <div class="deco-row">
+      <div class="d d1">border: 1px solid</div>
+      <div class="d d2">border-radius: 10px</div>
+      <div class="d d3">border-radius: 50%</div>
+      <div class="d d4">border-bottom 만</div>
+    </div>
+
+    <hr />
+
+    <!-- box-shadow 값 읽는 법 : 가로 세로 흐림 색 -->
+    <div class="deco-row">
+      <div class="d s1">0 2px 8px rgba(0,0,0,0.1)</div>
+      <div class="d s2">흐림을 30px 로</div>
+      <div class="d s3">불투명도를 0.5 로</div>
+      <div class="d s4">그림자 없음</div>
+    </div>
+
+    <hr />
+
+    <!-- overflow — 둥근 모서리 밖으로 나가는 것 막기 -->
+    <div class="deco-row">
+      <div class="card-x">
+        <div class="head">overflow 없음 — 모서리가 삐져나옴</div>
+        <p>본문</p>
+      </div>
+      <div class="card-x clipped">
+        <div class="head">overflow: hidden — 잘림</div>
+        <p>본문</p>
+      </div>
+    </div>
+  </body>
+</html>

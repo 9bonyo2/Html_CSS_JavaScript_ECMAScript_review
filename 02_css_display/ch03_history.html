@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3장. 배치 방법의 역사 — float 과 flex</title>
+    <link rel="stylesheet" href="css/ch03_history.css" />
+  </head>
+  <body>
+
+    <h1>3장. 배치 방법의 역사 — float 과 flex</h1>
+    <p><a href="index.html">&larr; 목차</a> &middot; 설명은 CSS_Flexbox_Grid_가이드.pdf 와 <code>css/ch03_history.css</code> 주석을 보세요.</p>
+    <hr />
+
+
+    <!-- 옛날 방식 : float
+         폭을 33.333% 로 계산해야 했고, 부모에 clear: both 를 걸어야 했습니다. -->
+    <p class="lbl">float 3열 — 폭을 직접 계산</p>
+    <div class="float-container">
+      <div class="float-item">1</div>
+      <div class="float-item">2</div>
+      <div class="float-item">3</div>
+    </div>
+
+    <!-- 지금 방식 : flex  —  계산이 필요 없습니다 -->
+    <p class="lbl">flex 3열 — flex: 1 과 gap</p>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+
+  </body>
+</html>

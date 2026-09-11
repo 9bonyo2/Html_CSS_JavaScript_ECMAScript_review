@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부록. 레시피와 디버깅</title>
+    <link rel="stylesheet" href="css/appendix.css" />
+  </head>
+  <body>
+
+    <h1>부록. 레시피와 디버깅</h1>
+    <p><a href="index.html">&larr; 목차</a> &middot; 설명은 CSS_Flexbox_Grid_가이드.pdf 와 <code>css/appendix.css</code> 주석을 보세요.</p>
+    <hr />
+
+
+    <!-- 부록 A-5  태그 · 칩 나열 — flex-wrap + gap -->
+    <p class="lbl">A-5 태그 나열 — display:flex / flex-wrap:wrap / gap</p>
+    <div class="tags">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span>
+      <span>React</span><span>Vite</span><span>Flexbox</span><span>Grid</span>
+    </div>
+
+    <!-- 부록 B  디버깅 — 모든 상자에 outline 그리기
+         체크를 켜면 body:has(#ot:checked) * 규칙이 동작합니다. -->
+    <p class="lbl">B 디버깅 — 모든 요소에 빨간 테두리</p>
+    <label class="outline-toggle">
+      <input type="checkbox" id="ot" /> outline 켜기
+    </label>
+
+  </body>
+</html>

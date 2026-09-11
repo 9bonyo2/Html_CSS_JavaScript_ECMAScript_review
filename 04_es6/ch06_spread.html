@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6장. 전개 구문과 그 밖의 ES6+ 문법</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="index.html">&larr; 예제 목차</a>
+      <h1>6장. 전개 구문과 그 밖의 ES6+ 문법</h1>
+      <p class="ref">6장 &middot; 04_ECMAScript_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>전개 구문(spread) — 펼치기</h2>
+        <pre>const all = [...a, ...b];          // 합치기
+const copy = [...a];               // 복사본 (a 와는 다른 배열)
+Math.max(...scores);               // 함수 인자로 펼치기
+
+const updated = { ...student, age: 21 };   // age 만 바꾼 새 객체</pre>
+
+        <table class="ex">
+          <tr><th>쓰는 자리</th><th>이름</th><th>하는 일</th><th>예</th></tr>
+          <tr><td>값을 쓰는 자리</td><td>전개 (spread)</td><td>하나를 여러 개로 펼친다</td>
+              <td><code>f(...args)</code>, <code>[...a]</code>, <code>{ ...o }</code></td></tr>
+          <tr><td>값을 받는 자리</td><td>나머지 (rest)</td><td>여러 개를 하나로 모은다</td>
+              <td><code>function f(...args)</code>, <code>{ a, ...rest }</code></td></tr>
+        </table>
+
+        <div class="note">
+          <b>알아두기</b>
+          뒤에 오는 값이 앞의 값을 덮어씁니다. 그래서
+          <code>{ ...student, age: 21 }</code> 은 "student 를 펼친 뒤 age 만 새 값으로"가 되고,
+          <code>{ age: 21, ...student }</code> 는 반대가 됩니다.
+        </div>
+
+        <p style="font-size:0.9rem; color:#777;">
+          위 내용은 페이지를 열자마자 자동으로 실행되어 아래 결과 영역에 나옵니다.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>얕은 복사 — 전개 구문은 한 겹만 복사한다</h2>
+        <pre>const shallow = { ...origin };
+shallow.detailRequest.address = '부산시';   // 원본까지 바뀐다!
+
+// 안쪽까지 새로 만들려면 안쪽도 함께 펼쳐야 한다
+const deep = {
+    ...origin,
+    detailRequest: { ...origin.detailRequest, address: '부산시' }
+};</pre>
+
+        <p>
+          <button type="button" id="btnShallow">얕은 복사 함정 확인</button>
+          <button type="button" id="btnRest">나머지 구문(rest) 실행</button>
+        </p>
+
+        <div class="note">
+          <b>알아두기</b>
+          React 에서 상태(state)를 바꿀 때 거의 항상 전개 구문을 씁니다.
+          원본을 직접 고치지 않고 새 객체를 만드는 것이
+          React 가 "화면을 다시 그릴지"를 판단하는 기준이기 때문입니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>기본 매개변수(default parameter)</h2>
+        <pre>function greet(name = '손님') { ... }
+
+greet();              // '손님'
+greet(undefined);     // '손님'   — 안 넘긴 것으로 본다
+greet(null);          // null     — 넘긴 값이므로 그대로 쓰인다
+
+// 객체 매개변수 + 구조 분해 + 기본값
+function createStudent({ name, age = 20, email = null } = {}) { ... }</pre>
+
+        <p>
+          <button type="button" id="btnDefault">기본 매개변수 실행</button>
+          <button type="button" id="btnEtc">단축 속성 · ?. · ?? 실행</button>
+          <button type="button" id="btnClear">지우기</button>
+        </p>
+
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          <code>Cannot destructure property ... of undefined</code> —
+          객체를 분해하는 매개변수에 <code>= {}</code> 기본값을 붙이지 않았습니다.<br />
+          <code>Rest parameter must be last formal parameter</code> —
+          <code>...args</code> 뒤에 다른 매개변수를 두었습니다.
+        </div>
+
+        <div class="note">
+          <b>알아두기</b>
+          기본값은 오직 <code>undefined</code> 일 때만 적용됩니다.
+          <code>??</code> 와 같은 규칙이며 <code>||</code> 와는 다릅니다.
+          빈 문자열이나 0 을 넘기면 그 값이 그대로 쓰입니다.
+        </div>
+
+        <div class="try">
+          <b>미니 과제</b>
+          <code>js/ch06_spread.js</code> 의 <code>greet</code> 를
+          ES5 방식(<code>name = name || '손님'</code>)으로 바꾼 뒤
+          <code>greet('')</code> 을 다시 호출해 보세요. 결과가 달라집니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>실행 결과</h2>
+        <p style="font-size:0.85rem; color:#777;">
+          아래 내용은 <code>out()</code> 으로 찍은 것이며, F12 → Console 에도 같이 나옵니다.
+        </p>
+        <pre id="output"></pre>
+      </section>
+
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch06_spread.js"></script>
+  </body>
+</html>

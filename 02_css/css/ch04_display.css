@@ -1,0 +1,25 @@
+/* ===== 4장. display ===== */
+
+.demo .lbl {
+    margin: 16px 0 6px;
+    color: #777;
+    font-size: 0.85rem;
+}
+.demo .lbl:first-child { margin-top: 0; }
+
+.d-block, .d-inline, .d-ib {
+    width: 120px;
+    padding: 8px;
+    background-color: #dce6f1;
+    border: 1px solid #b7c3d4;
+    text-align: center;
+    font-family: Consolas, monospace;
+}
+
+.d-block  { display: block; }        /* width 200px 이 적용됨 */
+.d-inline { display: inline; }       /* width 가 무시됨 */
+.d-ib     { display: inline-block; } /* 둘의 장점을 합친 것 */
+
+/* none 과 hidden */
+.d-none    { display: none; }
+.v-hidden  { visibility: hidden; }

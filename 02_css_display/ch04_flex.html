@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4장. display: flex</title>
+    <link rel="stylesheet" href="css/ch04_flex.css" />
+  </head>
+  <body>
+
+    <h1>4장. display: flex</h1>
+    <p><a href="index.html">&larr; 목차</a> &middot; 설명은 CSS_Flexbox_Grid_가이드.pdf 와 <code>css/ch04_flex.css</code> 주석을 보세요.</p>
+    <hr />
+
+
+    <!-- 4-3  flex-direction — 줄 세우는 방향 -->
+    <p class="lbl">4-3 row (기본값)</p>
+    <div class="fbox"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-3 row-reverse</p>
+    <div class="fbox dir-row-rev"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-3 column</p>
+    <div class="fbox dir-col"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-3 column-reverse</p>
+    <div class="fbox dir-col-rev"><i>1</i><i>2</i><i>3</i></div>
+
+    <!-- 4-4  justify-content — 주축 정렬 -->
+    <p class="lbl">4-4 justify-content: flex-start (기본값)</p>
+    <div class="fbox jc-start"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-4 flex-end</p>
+    <div class="fbox jc-end"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-4 center</p>
+    <div class="fbox jc-center"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-4 space-between</p>
+    <div class="fbox jc-between"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-4 space-around</p>
+    <div class="fbox jc-around"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-4 space-evenly</p>
+    <div class="fbox jc-evenly"><i>1</i><i>2</i><i>3</i></div>
+
+    <!-- 4-5  align-items — 교차축 정렬 (부모에 높이가 있어야 의미가 있다) -->
+    <p class="lbl">4-5 align-items: stretch (기본값)</p>
+    <div class="fbox tall ai-stretch"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-5 flex-start</p>
+    <div class="fbox tall ai-start"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-5 center</p>
+    <div class="fbox tall ai-center"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-5 flex-end</p>
+    <div class="fbox tall ai-end"><i>1</i><i>2</i><i>3</i></div>
+
+    <p class="lbl">4-5 완전 중앙 정렬 — justify-content + align-items + height</p>
+    <div class="center-box">정중앙</div>
+
+    <!-- 4-6  flex-wrap -->
+    <p class="lbl">4-6 nowrap (기본값) — 찌그러진다</p>
+    <div class="fbox narrow"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div>
+    <p class="lbl">4-6 wrap — 다음 줄로 내려간다</p>
+    <div class="fbox narrow wrap"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></div>
+
+    <!-- 4-7  자식에게 주는 flex -->
+    <p class="lbl">4-7 아무 설정 없음 — 내용 크기만큼</p>
+    <div class="fbox"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-7 모두 flex: 1 — 1:1:1</p>
+    <div class="fbox all-grow"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-7 2번만 flex: 1</p>
+    <div class="fbox second-grow"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">4-7 1:2:1 비율</p>
+    <div class="fbox ratio"><i>1</i><i>2</i><i>3</i></div>
+
+    <!-- 4-8  실전 패턴 -->
+    <p class="lbl">4-8 ① 네비게이션 바 — space-between</p>
+    <div class="navbar">
+      <span>로고</span>
+      <span>메뉴1 메뉴2 메뉴3</span>
+    </div>
+
+    <p class="lbl">4-8 ③ 아이콘 + 텍스트 — align-items: center</p>
+    <div class="icon-label"><span class="icon">!</span> 알림 3건</div>
+
+    <p class="lbl">4-8 ④ 사이드바 + 본문 — width 고정 + flex: 1</p>
+    <div class="layout">
+      <div class="sidebar">sidebar 250px</div>
+      <div class="content">content — flex: 1</div>
+    </div>
+
+    <p class="lbl">4-8 ⑥ 세로 배치 — flex-direction: column</p>
+    <div class="form-group">
+      <label for="nm">이름</label>
+      <input type="text" id="nm" />
+    </div>
+
+  </body>
+</html>

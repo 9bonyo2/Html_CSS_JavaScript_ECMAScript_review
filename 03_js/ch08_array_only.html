@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8장. 배열과 배열 메서드</title>
+  </head>
+  <body>
+
+    <h1>8장. 배열과 배열 메서드</h1>
+    <p>
+      <a href="index.html">&larr; 목차</a> &middot;
+      코드는 <code>js/ch08_array.js</code> 에 있습니다. F12 &rarr; Console 을 함께 여세요.
+    </p>
+    <hr />
+
+    <p>
+      <button type="button" id="btnBasic">기본 접근</button>
+      <button type="button" id="btnForEach">forEach</button>
+      <button type="button" id="btnMethods">map · filter · find</button>
+      <button type="button" id="btnRender">표 그리기 (실습 3-6)</button>
+      <button type="button" id="btnDup">비우지 않으면 (중복 재현)</button>
+      <button type="button" id="btnClear">지우기</button>
+    </p>
+
+    <!-- 표 그리기 결과가 들어갈 자리.
+         "비우지 않으면" 을 여러 번 누르면 같은 학생이 쌓입니다. -->
+    <table border="1">
+      <thead>
+        <tr><th>이름</th><th>학번</th><th>주소</th><th>이메일</th></tr>
+      </thead>
+      <tbody id="studentTableBody"></tbody>
+    </table>
+
+    <!-- 실행 결과 — assets/demo.js 의 out() 이 여기에 찍는다 -->
+    <h2>실행 결과</h2>
+    <pre id="output"></pre>
+
+    <!-- out() · outClear() 헬퍼가 먼저 와야 한다 -->
+    <script src="../assets/demo.js"></script>
+    <script src="js/ch08_array.js"></script>
+  </body>
+</html>

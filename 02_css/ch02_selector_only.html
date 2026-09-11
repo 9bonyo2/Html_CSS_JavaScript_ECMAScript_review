@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2장. 선택자와 우선순위</title>
+    <link rel="stylesheet" href="css/ch02_selector.css" />
+  </head>
+  <body>
+
+    <h1>선택자와 우선순위</h1>
+
+    <!-- 기본 선택자 : 타입 / 클래스 / id -->
+    <div class="sel-demo">
+      <p>타입 선택자 — p { }</p>
+      <p class="hi">클래스 선택자 — .hi { }</p>
+      <p id="only">id 선택자 — #only { }</p>
+    </div>
+
+    <hr />
+
+    <!-- 관계 선택자 : 공백 하나가 의미를 바꾼다 -->
+    <div class="box-a">
+      .box-a:hover — 상자 자신에 마우스를 올리면
+      <span class="inner">안쪽 요소</span>
+    </div>
+
+    <div class="box-b">
+      .box-b :hover — 안쪽 요소에 마우스를 올리면 (공백에 주의)
+      <span class="inner">안쪽 요소</span>
+    </div>
+
+    <hr />
+
+    <!-- 우선순위 : id > class > 타입 -->
+    <p class="prio" id="prio-id">class 와 id 를 둘 다 줬을 때 — id 가 이깁니다</p>
+  </body>
+</html>

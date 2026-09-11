@@ -1,0 +1,66 @@
+/* ===== 11장. transition 과 hover ===== */
+
+.tr-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.tr-nav a {
+    padding: 10px 14px;
+    border-radius: 6px;
+    background-color: #333333;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.88rem;
+}
+
+/* 올바른 방식 : 평소 상태에 transition */
+.tr-nav a.good { transition: background-color 0.3s, color 0.3s; }
+.tr-nav a.good:hover { background-color: #00adb5; }
+
+/* 흔한 실수 : :hover 에만 transition → 뗄 때 끊김 */
+.tr-nav a.bad:hover {
+    background-color: #00adb5;
+    transition: background-color 0.3s;
+}
+
+/* transition 없음 */
+.tr-nav a.none:hover { background-color: #00adb5; }
+
+/* 시간 비교 */
+.tr-nav a.t-fast { transition: background-color 0.1s; }
+.tr-nav a.t-fast:hover { background-color: #00adb5; }
+.tr-nav a.t-slow { transition: background-color 2s; }
+.tr-nav a.t-slow:hover { background-color: #00adb5; }
+
+/* --- 카드 hover (실습 2-7) --- */
+.card-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+}
+.hcard {
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;      /* 평소 상태에 선언 */
+}
+.hcard .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+.hcard p {
+    margin: 0;
+    padding: 12px;
+    font-size: 0.82rem;
+}
+.hcard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}

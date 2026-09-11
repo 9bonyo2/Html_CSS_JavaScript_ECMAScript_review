@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4장. display</title>
+    <link rel="stylesheet" href="css/ch04_display.css" />
+  </head>
+  <body>
+
+    <h1>display</h1>
+
+    <!-- block : 한 줄 전체. width 가 먹는다 -->
+    <span class="d-block">display: block ①</span>
+    <span class="d-block">display: block ②</span>
+
+    <hr />
+
+    <!-- inline : 글자처럼 흐른다. width 가 무시된다 -->
+    <span class="d-inline">display: inline ①</span>
+    <span class="d-inline">display: inline ②</span>
+
+    <hr />
+
+    <!-- inline-block : 옆으로 나란히 + width 가 먹는다 -->
+    <span class="d-ib">inline-block ①</span>
+    <span class="d-ib">inline-block ②</span>
+
+    <hr />
+
+    <!-- none 과 visibility: hidden 의 차이 -->
+    <p>아래 두 상자 중 하나는 자리까지 사라지고, 하나는 자리가 남습니다.</p>
+    <div>보이는 상자 (앞)</div>
+    <div class="d-none">display: none — 자리까지 사라진다</div>
+    <div class="v-hidden">visibility: hidden — 자리는 남는다</div>
+    <div>보이는 상자 (뒤)</div>
+  </body>
+</html>

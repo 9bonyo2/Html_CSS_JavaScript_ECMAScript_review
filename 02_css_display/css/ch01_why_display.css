@@ -1,0 +1,12 @@
+/* ===== 1장. display 속성은 왜 필요한가 ===== */
+
+.lbl {
+    margin: 14px 0 6px;
+    color: #777777;
+    font-size: 0.85rem;
+}
+.lbl:first-child { margin-top: 0; }
+
+/* CSS 는 배경색만 줬습니다. 배치는 태그의 타고난 성질 그대로입니다. */
+.a { background-color: #dce6f1; }   /* div — block */
+.b { background-color: #fdf0e3; }   /* span — inline */

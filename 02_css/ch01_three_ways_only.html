@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1장. CSS 를 붙이는 세 가지 방법</title>
+    <!-- (2) 내부 스타일 — head 안의 style 태그 -->
+    <style>
+      .internal-demo {
+        color: #e8a33d;
+        font-weight: bold;
+      }
+    </style>
+
+    <link rel="stylesheet" href="css/ch01_three_ways.css" />
+  </head>
+  <body>
+
+    <h1>CSS 를 붙이는 세 가지 방법</h1>
+
+    <!-- (1) 인라인 — 태그에 직접. 재사용이 안 되고 우선순위가 너무 높다 -->
+    <p style="color: #c0504d;">① 인라인 — style 속성으로 직접</p>
+
+    <!-- (2) 내부 — 위 head 의 style 태그 -->
+    <p class="internal-demo">② 내부 — 이 페이지 head 의 style 태그</p>
+
+    <!-- (3) 외부 — css/ch01_three_ways_only.css 파일. 실무의 표준 -->
+    <p class="external-demo">③ 외부 — 별도 .css 파일</p>
+  </body>
+</html>

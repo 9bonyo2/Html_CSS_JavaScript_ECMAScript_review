@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5장. display: grid</title>
+    <link rel="stylesheet" href="css/ch05_grid.css" />
+  </head>
+  <body>
+
+    <h1>5장. display: grid</h1>
+    <p><a href="index.html">&larr; 목차</a> &middot; 설명은 CSS_Flexbox_Grid_가이드.pdf 와 <code>css/ch05_grid.css</code> 주석을 보세요.</p>
+    <hr />
+
+
+    <!-- 5-2  열과 행을 직접 정의 — 자식에는 아무 CSS 도 쓰지 않았다 -->
+    <p class="lbl">5-2 grid-template-columns: 100px 200px 100px / rows: 50px 50px</p>
+    <div class="g-fixed">
+      <div>1</div><div>2</div><div>3</div><div>4</div>
+    </div>
+
+    <!-- 5-3  fr 단위 -->
+    <p class="lbl">5-3 1fr 1fr 1fr — 3등분</p>
+    <div class="g3"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">5-3 2fr 1fr — 왼쪽이 2배</p>
+    <div class="g21"><i>1</i><i>2</i></div>
+    <p class="lbl">5-3 200px 1fr 100px — 고정 · 유연 · 고정</p>
+    <div class="gmix"><i>1</i><i>2</i><i>3</i></div>
+    <p class="lbl">5-3 repeat(4, 1fr)</p>
+    <div class="g4"><i>1</i><i>2</i><i>3</i><i>4</i></div>
+
+    <!-- 5-5  grid-template-areas
+         창 너비를 768px 이하로 줄이면 HTML 수정 없이 사이드바가 본문 아래로 내려갑니다. -->
+    <p class="lbl">5-5 grid-template-areas — 창을 줄여 보세요</p>
+    <div class="website">
+      <div class="w-header">HEADER</div>
+      <div class="w-sidebar">SIDEBAR</div>
+      <div class="w-content">CONTENT</div>
+      <div class="w-footer">FOOTER</div>
+    </div>
+
+    <!-- 5-6  auto-fit + minmax — 미디어 쿼리 없는 반응형 -->
+    <p class="lbl">5-6 repeat(auto-fit, minmax(150px, 1fr)) — 창을 줄여 보세요</p>
+    <div class="card-list">
+      <i>카드 1</i><i>카드 2</i><i>카드 3</i><i>카드 4</i><i>카드 5</i><i>카드 6</i>
+    </div>
+
+  </body>
+</html>

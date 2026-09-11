@@ -1,0 +1,50 @@
+/* ===== 2장. 기본 4형제 ===== */
+
+.lbl {
+    margin: 14px 0 6px;
+    color: #777777;
+    font-size: 0.85rem;
+}
+.lbl:first-child { margin-top: 0; }
+
+/* --- 2-1 block : span 인데 block 을 주면 한 줄을 차지한다 --- */
+.box {
+    display: block;
+    background: pink;
+}
+
+/* --- 2-2 inline : div 인데 inline 을 주면 옆으로 붙는다 --- */
+.text {
+    display: inline;
+    background: yellow;
+}
+
+/* --- 2-3 inline 의 함정 : 아래 세 줄은 전부 무시된다 --- */
+.trap {
+    width: 200px;        /* 적용 안 됨 */
+    height: 100px;       /* 적용 안 됨 */
+    margin-top: 50px;    /* 적용 안 됨 */
+    background-color: #fceaea;
+}
+
+/* --- 2-4 inline-block : 옆으로 나란히 + 크기 지정 가능 --- */
+.btn {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #dce6f1;
+    text-align: center;
+}
+
+/* --- 2-5 none 과 visibility: hidden --- */
+.cell {
+    display: inline-block;
+    width: 60px;
+    padding: 10px;
+    background-color: #dce6f1;
+    text-align: center;
+}
+.d-none   { display: none; }         /* 자리까지 사라진다 */
+.v-hidden { visibility: hidden; }    /* 자리는 남는다 */

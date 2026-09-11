@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7장. 함께 알아야 할 속성</title>
+    <link rel="stylesheet" href="css/ch07_related.css" />
+  </head>
+  <body>
+
+    <h1>7장. 함께 알아야 할 속성</h1>
+    <p><a href="index.html">&larr; 목차</a> &middot; 설명은 CSS_Flexbox_Grid_가이드.pdf 와 <code>css/ch07_related.css</code> 주석을 보세요.</p>
+    <hr />
+
+
+    <!-- 7-1  box-sizing
+         둘 다 width: 200px 인데 실제 차지하는 폭이 다릅니다. -->
+    <p class="lbl">7-1 content-box (기본값) — 실제 250px</p>
+    <div class="bx content-box">width: 200px</div>
+    <p class="lbl">7-1 border-box — 실제 200px</p>
+    <div class="bx border-box">width: 200px</div>
+
+    <!-- 7-2  overflow -->
+    <p class="lbl">7-2 overflow — 둥근 모서리 밖으로 나가는 것 막기</p>
+    <div class="ovf-row">
+      <div class="ovf-card">
+        <div class="head">overflow 없음</div>
+        <p>모서리가 삐져나옴</p>
+      </div>
+      <div class="ovf-card clipped">
+        <div class="head">overflow: hidden</div>
+        <p>매끈하게 잘림</p>
+      </div>
+    </div>
+
+    <p class="lbl">7-2 overflow: auto — 넘칠 때만 스크롤</p>
+    <div class="ovf-scroll">
+      <p>내용 1</p><p>내용 2</p><p>내용 3</p><p>내용 4</p><p>내용 5</p>
+    </div>
+
+    <!-- 7-3  position — relative 기준점 + absolute 뱃지 -->
+    <p class="lbl">7-3 position: relative 부모 + absolute 뱃지</p>
+    <div class="pcard">
+      position: relative 인 부모
+      <span class="badge">NEW</span>
+    </div>
+
+  </body>
+</html>

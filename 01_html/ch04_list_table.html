@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4장. 목록과 표</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>4장. 목록과 표</h1>
+      <p class="ref">4장 &middot; 01_HTML_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>목록</h2>
+        <pre>&lt;ul&gt;                    &lt;ol&gt;
+    &lt;li&gt;HTML&lt;/li&gt;           &lt;li&gt;VS Code 설치&lt;/li&gt;
+    &lt;li&gt;CSS&lt;/li&gt;            &lt;li&gt;Live Server 설치&lt;/li&gt;
+&lt;/ul&gt;                   &lt;/ol&gt;</pre>
+
+        <div class="demo">
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <ol>
+            <li>VS Code 설치</li>
+            <li>Live Server 설치</li>
+            <li>Chrome 개발자 도구 열어보기</li>
+          </ol>
+        </div>
+
+        <div class="note">
+          <b>알아두기</b>
+          ul 과 ol 의 자식은 반드시 li 여야 합니다.
+          반대로 li 안에는 무엇이든 넣을 수 있습니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>표 — 3부에서 학생 목록을 만드는 구조</h2>
+        <pre>&lt;table&gt;
+    &lt;thead&gt;                    &lt;!-- 머리글 (고정) --&gt;
+        &lt;tr&gt;
+            &lt;th&gt;이름&lt;/th&gt;&lt;th&gt;학번&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody id="studentTableBody"&gt;  &lt;!-- 여기만 JS 가 갈아 끼움 --&gt;
+        &lt;tr&gt;
+            &lt;td&gt;홍길동&lt;/td&gt;&lt;td&gt;20241234&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+
+        <div class="demo">
+          <table class="ex">
+            <thead>
+              <tr>
+                <th>이름</th><th>학번</th><th>주소</th><th>액션</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>홍길동</td><td>20241234</td><td>서울시 강남구</td>
+                <td><button type="button">수정</button></td>
+              </tr>
+              <tr>
+                <td>김코딩</td><td>20241235</td><td>부산시 해운대구</td>
+                <td><button type="button">수정</button></td>
+              </tr>
+              <tr>
+                <td colspan="4" style="text-align:center; color:#777;">
+                  colspan="4" — 이 칸 하나가 가로 4칸을 차지합니다
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <table class="ex">
+          <tr><th>태그</th><th>뜻</th><th>역할</th></tr>
+          <tr><td>table</td><td>표 전체</td><td>바깥 테두리</td></tr>
+          <tr><td>thead</td><td>table head</td><td>머리글 행 묶음. 바뀌지 않음</td></tr>
+          <tr><td>tbody</td><td>table body</td><td>데이터 행 묶음. JS 가 여기만 교체</td></tr>
+          <tr><td>tr</td><td>table row</td><td>가로 한 줄</td></tr>
+          <tr><td>th</td><td>header cell</td><td>머리글 칸 (굵게 가운데)</td></tr>
+          <tr><td>td</td><td>data cell</td><td>데이터 칸</td></tr>
+        </table>
+
+        <div class="note">
+          <b>알아두기</b>
+          실습 3-4에서 tbody 에만 <code>id="studentTableBody"</code> 를 붙이는 이유가
+          여기 있습니다. 머리글은 그대로 두고 데이터 행만 통째로 바꾸면 되기 때문입니다.
+        </div>
+
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          행마다 칸 개수가 다르면 표가 깨져 보입니다.
+          colspan 값은 실제 열 개수와 맞춰야 합니다.
+        </div>
+      </section>
+    
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

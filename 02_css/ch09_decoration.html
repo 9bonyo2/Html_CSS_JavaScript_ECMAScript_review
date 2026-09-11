@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9장. 배경 · 테두리 · 그림자</title>
+    <link rel="stylesheet" href="../assets/base.css" />
+    <link rel="stylesheet" href="css/ch09_decoration.css" />
+
+  </head>
+  <body>
+    <header class="page-head">
+      <a class="back" href="../index.html">&larr; 예제 목차</a>
+      <h1>9장. 배경 · 테두리 · 그림자</h1>
+      <p class="ref">9장 &middot; 02_CSS_기초.docx</p>
+    </header>
+
+    <main class="page-body">
+
+      <section class="block">
+        <h2>테두리와 모서리</h2>
+        <div class="demo deco-row">
+          <div class="d d1">border<br />1px solid</div>
+          <div class="d d2">border-radius<br />10px</div>
+          <div class="d d3">border-radius<br />50%</div>
+          <div class="d d4">border-bottom<br />만</div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>box-shadow 읽는 법</h2>
+        <pre>box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            |  |    |    |
+            |  |    |    +-- 색 (검정을 10% 투명도로)
+            |  |    +------- 흐림 정도 (클수록 은은함)
+            |  +------------ 세로 위치 (아래로 2px)
+            +--------------- 가로 위치 (0이면 안 치우침)</pre>
+
+        <div class="demo deco-row">
+          <div class="d s1">0 2px 8px<br />rgba(0,0,0,.1)</div>
+          <div class="d s2">0 2px 30px<br />rgba(0,0,0,.1)</div>
+          <div class="d s3">0 2px 8px<br />rgba(0,0,0,.5)</div>
+          <div class="d s4">그림자 없음</div>
+        </div>
+
+        <div class="note">
+          <b>알아두기</b>
+          실무의 그림자는 대부분 아래로 살짝, 아주 흐리게, 아주 옅게 줍니다.
+          진한 그림자는 촌스러워 보이기 쉽습니다.
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>overflow — 둥근 모서리 밖으로 나가는 것 막기</h2>
+        <div class="demo deco-row">
+          <div class="card-x">
+            <div class="head">overflow 없음</div>
+            <p>이미지 영역이 모서리를 뚫고 나옵니다</p>
+          </div>
+          <div class="card-x clipped">
+            <div class="head">overflow: hidden</div>
+            <p>둥근 모서리 안쪽으로 잘립니다</p>
+          </div>
+        </div>
+
+        <div class="warn">
+          <b>자주 나는 오류</b>
+          실습 2-5에서 "이미지 영역이 카드 모서리를 뚫고 나온다"는 문제의 해결책이
+          부모에 <code>overflow: hidden</code> 을 주는 것입니다.
+        </div>
+      </section>
+    
+    </main>
+
+    <footer class="page-foot">
+      <p>「처음 시작하는 프론트엔드」 기초 문서 예제 &middot; F12를 눌러 개발자 도구를 함께 보세요.</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+/* ===== 7장. 단위와 색 ===== */
+
+.u {
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #dce6f1;
+    font-family: Consolas, monospace;
+    font-size: 0.85rem;
+}
+.u.px  { width: 200px; }
+.u.pct { width: 60%; }
+.u.rem { font-size: 1.4rem; }
+.u.vw  { width: 40vw; }
+.u.vh  { height: 15vh; }
+
+/* --- rem vs em --- */
+.rem-outer, .em-outer {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #eef1f5;
+}
+.rem-outer { font-size: 1.2rem; }
+.rem-inner { font-size: 1.2rem; color: #2e5496; }   /* 항상 html 기준 */
+
+.em-outer  { font-size: 1.2em; }
+.em-inner  { font-size: 1.2em; color: #c0504d; }    /* 부모 기준 → 누적 */
+
+/* --- 색 견본 --- */
+.swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+}
+.sw {
+    padding: 18px 8px;
+    border-radius: 4px;
+    text-align: center;
+    font-family: Consolas, monospace;
+    font-size: 0.8rem;
+}
+.sw small { color: inherit; opacity: 0.75; }
+
+.c1 { background-color: red;                color: #ffffff; }
+.c2 { background-color: #333333;            color: #ffffff; }
+.c3 { background-color: #333;               color: #ffffff; }
+.c4 { background-color: rgb(46, 84, 150);   color: #ffffff; }
+.c5 { background-color: rgba(0, 0, 0, 0.1); color: #333333; }
