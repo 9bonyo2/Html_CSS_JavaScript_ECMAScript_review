@@ -1,4 +1,5 @@
 import "./style.css";
+console.log(import.meta.env.VITE_API_BASE_URL);
 
 // 전역 변수
 const API_BASE_URL = 'http://localhost:8080';
@@ -306,3 +307,7 @@ function resetForm() {
     editingBookId = null;
     submitButton.textContent = '도서 등록';
 }
+
+window.editBook = editBook;
+window.deleteBook = deleteBook;
+window.showBookDetail = showBookDetail;
