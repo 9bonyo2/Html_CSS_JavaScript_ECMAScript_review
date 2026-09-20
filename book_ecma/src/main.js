@@ -1,5 +1,6 @@
 import "./style.css";
 console.log(import.meta.env.VITE_API_BASE_URL);
+import { fetchBooks } from "./api/bookApi.js";
 
 // 전역 변수
 const API_BASE_URL = 'http://localhost:8080';
