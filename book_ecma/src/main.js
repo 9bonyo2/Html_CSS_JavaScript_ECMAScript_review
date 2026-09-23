@@ -135,21 +135,18 @@ function isValidUrl(string) {
 }
 
 // 도서 목록 로드 함수
-function loadBooks() {
-    fetch(`${API_BASE_URL}/api/books`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('도서 목록을 불러오는데 실패했습니다.');
-            }
-            return response.json();
-        })
-        .then(books => {
-            renderBookTable(books);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('도서 목록을 불러오는데 실패했습니다.');
-        });
+async function loadBooks() {
+    try{  
+        const books = await fetchBooks();
+        console.log(books);
+        renderBookTable(books);
+    }catch(error){
+        console.error('Error:', error);
+        alert('도서 목록을 불러오는데 실패했습니다.');
+    }finally{
+        console.log('로딩중');
+    }
+  
 }
 
 // 도서 테이블 렌더링

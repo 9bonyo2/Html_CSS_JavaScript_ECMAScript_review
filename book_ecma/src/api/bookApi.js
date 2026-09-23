@@ -64,6 +64,7 @@ async function request(url, options = {}) {
    중괄호와 return 없이 한 줄로 쓰면 그 값이 그대로 돌아간다.
    function fetchBooks() { return request(BOOKS_URL); } 와 같은 뜻이다. */
 
+// console.log(BOOKS_URL);
 export const fetchBooks = () => request(BOOKS_URL);
 
 export const fetchBook = (id) => request(`${BOOKS_URL}/${id}`);
