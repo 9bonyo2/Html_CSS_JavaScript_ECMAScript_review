@@ -1,9 +1,15 @@
 import "./style.css";
 console.log(import.meta.env.VITE_API_BASE_URL);
-import { fetchBooks } from "./api/bookApi.js";
+import {
+    createBook as apiCreateBook,
+    updateBook as apiUpdateBook,
+    deleteBook as apiDeleteBook,
+    fetchBook,
+    fetchBooks
+} from "./api/bookApi.js";
+
 
 // 전역 변수
-const API_BASE_URL = 'http://localhost:8080';
 let editingBookId = null; // 현재 수정 중인 도서 ID
 
 // DOM 요소 참조
@@ -53,29 +59,17 @@ bookForm.addEventListener('submit', function(e) {
 });
 
 // 도서 생성 함수
-function createBook(bookData) {
-    fetch(`${API_BASE_URL}/api/books`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(bookData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('도서 등록에 실패했습니다.');
-        }
-        return response.json();
-    })
-    .then(result => {
-        alert('도서가 성공적으로 등록되었습니다.');
-        bookForm.reset();
-        loadBooks(); // 목록 새로고침
-    })
-    .catch(error => {
+async function createBook(book) {
+  try{
+    await apiCreateBook(book);
+    resetForm();
+    loadBooks();
+  }catch(error) {
         console.error('Error:', error);
-        alert('도서 등록에 실패했습니다.');
-    });
+        alert('등록에 실패했습니다.');
+  }finally{
+        console.log('로딩중');
+  }
 }
 
 // 도서 데이터 유효성 검사
@@ -179,124 +173,92 @@ function renderBookTable(books) {
 }
 
 // 도서 삭제 함수
-function deleteBook(bookId) {
+async function deleteBook(bookId) {
     if (!confirm('정말로 이 도서를 삭제하시겠습니까?')) {
         return;
     }
 
-    fetch(`${API_BASE_URL}/api/books/${bookId}`, {
-        method: 'DELETE'
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('도서 삭제에 실패했습니다.');
-        }
-        alert('도서가 성공적으로 삭제되었습니다.');
-        loadBooks(); // 목록 새로고침
-    })
-    .catch(error => {
+    try{
+      await apiDeleteBook(bookId);
+      loadBooks();
+    }catch(error){
         console.error('Error:', error);
         alert('도서 삭제에 실패했습니다.');
-    });
+    }finally{
+      console.log('삭제 로딩중');
+    }
 }
 
 // 도서 수정 함수
-function editBook(bookId) {
-    fetch(`${API_BASE_URL}/api/books/${bookId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('도서 정보를 불러오는데 실패했습니다.');
-            }
-            return response.json();
-        })
-        .then(book => {
-            // 폼에 기본 도서 정보 채우기
-            bookForm.title.value = book.title;
-            bookForm.author.value = book.author;
-            bookForm.isbn.value = book.isbn;
-            bookForm.price.value = book.price || '';
-            bookForm.publishDate.value = book.publishDate || '';
+async function editBook(bookId) {
+    try{
+    const book = await fetchBook(bookId);
 
-            // 폼에 상세 정보 채우기
-            if (book.bookDetail) {
-                bookForm.description.value = book.bookDetail.description || '';
-                bookForm.language.value = book.bookDetail.language || '';
-                bookForm.pageCount.value = book.bookDetail.pageCount || '';
-                bookForm.publisher.value = book.bookDetail.publisher || '';
-                bookForm.coverImageUrl.value = book.bookDetail.coverImageUrl || '';
-                bookForm.edition.value = book.bookDetail.edition || '';
-            }
+    bookForm.title.value = book.title;
+    bookForm.author.value = book.author;
+    bookForm.isbn.value = book.isbn;
+    bookForm.price.value = book.price || '';
+    bookForm.publishDate.value = book.publishDate || '';
 
-            // 수정 모드로 설정
-            editingBookId = bookId;
-            submitButton.textContent = '도서 수정';
+    // 폼에 상세 정보 채우기
+    if (book.bookDetail) {
+    bookForm.description.value = book.bookDetail.description || '';
+    bookForm.language.value = book.bookDetail.language || '';
+    bookForm.pageCount.value = book.bookDetail.pageCount || '';
+    bookForm.publisher.value = book.bookDetail.publisher || '';
+    bookForm.coverImageUrl.value = book.bookDetail.coverImageUrl || '';
+    bookForm.edition.value = book.bookDetail.edition || '';
+    
+    // 수정 모드로 설정
+    editingBookId = bookId;
+    submitButton.textContent = '도서 수정';
 
-            // 폼으로 스크롤
-            bookForm.scrollIntoView({ behavior: 'smooth' });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('도서 정보를 불러오는데 실패했습니다.');
-        });
+    // 폼으로 스크롤
+    bookForm.scrollIntoView({ behavior: 'smooth' });
+    }
+
+  } catch(error){
+    console.error('Error:', error);
+    alert('도서 정보를 불러오는데 실패했습니다.');
+  }
 }
 
-// 도서 업데이트 함수
-function updateBook(bookId, bookData) {
-    fetch(`${API_BASE_URL}/api/books/${bookId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(bookData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('도서 정보 수정에 실패했습니다.');
-        }
-        return response.json();
-    })
-    .then(result => {
-        alert('도서 정보가 성공적으로 수정되었습니다.');
-        resetForm();
-        loadBooks(); // 목록 새로고침
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('도서 정보 수정에 실패했습니다.');
-    });
+//도서 업데이트 함수
+async function updateBook(bookId, bookData) {
+  try{
+    await apiUpdateBook(bookId, bookData);
+    alert('도서 정보가 성공적으로 수정되었습니다.');
+    resetForm();
+    loadBooks(); // 목록 새로고침
+  }catch(error){
+    console.error('Error:', error);
+    alert('도서 정보를 불러오는데 실패했습니다.');
+  }
 }
 
 // 도서 상세보기 함수
-function showBookDetail(bookId) {
-    fetch(`${API_BASE_URL}/api/books/${bookId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('도서 정보를 불러오는데 실패했습니다.');
-            }
-            return response.json();
-        })
-        .then(book => {
-            let detailInfo = `제목: ${book.title}\n`;
-            detailInfo += `저자: ${book.author}\n`;
-            detailInfo += `ISBN: ${book.isbn}\n`;
-            detailInfo += `가격: ${book.price ? '₩' + book.price.toLocaleString() : '-'}\n`;
-            detailInfo += `출판일: ${book.publishDate || '-'}\n\n`;
+async function showBookDetail(bookId) {
+  try{
+      const book = await fetchBook(bookId);
+      let detailInfo = `제목: ${book.title}\n`;
+      detailInfo += `저자: ${book.author}\n`;
+      detailInfo += `ISBN: ${book.isbn}\n`;
+      detailInfo += `가격: ${book.price ? '₩' + book.price.toLocaleString() : '-'}\n`;
+      detailInfo += `출판일: ${book.publishDate || '-'}\n\n`;
 
-            if (book.bookDetail) {
-                detailInfo += `설명: ${book.bookDetail.description || '-'}\n`;
-                detailInfo += `언어: ${book.bookDetail.language || '-'}\n`;
-                detailInfo += `페이지 수: ${book.bookDetail.pageCount || '-'}\n`;
-                detailInfo += `출판사: ${book.bookDetail.publisher || '-'}\n`;
-                detailInfo += `에디션: ${book.bookDetail.edition || '-'}\n`;
-                detailInfo += `표지 이미지: ${book.bookDetail.coverImageUrl || '-'}`;
-            }
-
-            alert(detailInfo);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('도서 정보를 불러오는데 실패했습니다.');
-        });
+      if (book.bookDetail) {
+      detailInfo += `설명: ${book.bookDetail.description || '-'}\n`;
+      detailInfo += `언어: ${book.bookDetail.language || '-'}\n`;
+      detailInfo += `페이지 수: ${book.bookDetail.pageCount || '-'}\n`;
+      detailInfo += `출판사: ${book.bookDetail.publisher || '-'}\n`;
+      detailInfo += `에디션: ${book.bookDetail.edition || '-'}\n`;
+      detailInfo += `표지 이미지: ${book.bookDetail.coverImageUrl || '-'}`;
+      }
+      alert(detailInfo);
+  }catch(error){
+    console.error('Error:', error);
+    alert('도서 정보를 불러오는데 실패했습니다.');
+  }
 }
 
 // 폼 초기화 함수

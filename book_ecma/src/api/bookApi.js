@@ -31,7 +31,7 @@ const DEFAULT_MESSAGES = {
    request(url) 처럼 한 개만 넘겨도 오류가 나지 않는다. */
 async function request(url, options = {}) {
     const response = await fetch(url, options);
-
+    console.log(response);
     // response.ok 는 상태 코드가 200~299 일 때만 true 다.
     // fetch 는 404 나 500 을 받아도 오류를 내지 않으므로 직접 확인해야 한다.
     if (!response.ok) {
