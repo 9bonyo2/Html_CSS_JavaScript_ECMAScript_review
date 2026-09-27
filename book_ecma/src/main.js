@@ -7,13 +7,14 @@ import {
     fetchBook,
     fetchBooks
 } from "./api/bookApi.js";
+import {bookForm, collectBookData} from "./ui/bookForm.js";
 
 
 // 전역 변수
 let editingBookId = null; // 현재 수정 중인 도서 ID
 
 // DOM 요소 참조
-const bookForm = document.getElementById('bookForm');
+// export const bookForm = document.getElementById('bookForm');
 const bookTableBody = document.getElementById('bookTableBody');
 const submitButton = bookForm.querySelector('button[type="submit"]');
 
@@ -28,22 +29,7 @@ bookForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
     // 폼 데이터 수집
-    const formData = new FormData(bookForm);
-    const bookData = {
-        title: formData.get('title').trim(),
-        author: formData.get('author').trim(),
-        isbn: formData.get('isbn').trim(),
-        price: formData.get('price') ? parseInt(formData.get('price')) : null,
-        publishDate: formData.get('publishDate') || null,
-        bookDetail: {
-            description: formData.get('description').trim(),
-            language: formData.get('language').trim(),
-            pageCount: formData.get('pageCount') ? parseInt(formData.get('pageCount')) : null,
-            publisher: formData.get('publisher').trim(),
-            coverImageUrl: formData.get('coverImageUrl').trim(),
-            edition: formData.get('edition').trim()
-        }
-    };
+    const bookData = collectBookData();
 
     // 유효성 검사
     if (!validateBook(bookData)) {
@@ -123,7 +109,7 @@ function isValidUrl(string) {
     try {
         new URL(string);
         return true;
-    } catch (_) {
+    } catch (error) {
         return false;
     }
 }
@@ -193,7 +179,7 @@ async function deleteBook(bookId) {
 async function editBook(bookId) {
     try{
     const book = await fetchBook(bookId);
-
+    console.log(bookForm);
     bookForm.title.value = book.title;
     bookForm.author.value = book.author;
     bookForm.isbn.value = book.isbn;
@@ -208,14 +194,14 @@ async function editBook(bookId) {
     bookForm.publisher.value = book.bookDetail.publisher || '';
     bookForm.coverImageUrl.value = book.bookDetail.coverImageUrl || '';
     bookForm.edition.value = book.bookDetail.edition || '';
-    
+    }
     // 수정 모드로 설정
     editingBookId = bookId;
     submitButton.textContent = '도서 수정';
 
     // 폼으로 스크롤
     bookForm.scrollIntoView({ behavior: 'smooth' });
-    }
+    
 
   } catch(error){
     console.error('Error:', error);
