@@ -35,8 +35,8 @@ bookForm.addEventListener('submit', function(e) {
     // 도서 데이터 유효성 검사
     const message = validateBook(bookData);
     if (message) {
-    alert('등록에 실패했습니다.');
-    // showError(message);   // 과제 9 에서 만든다. 지금은 alert 으로 둔다
+    //alert('등록에 실패했습니다.');
+    //showError(message);   // 과제 9 에서 만든다. 지금은 alert 으로 둔다
     return;
     }
 

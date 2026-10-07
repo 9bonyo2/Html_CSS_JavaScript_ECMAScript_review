@@ -2,6 +2,7 @@ export const bookForm = document.getElementById('bookForm');
 
 export function collectBookData(){
     const formData = new FormData(bookForm);
+    console.log(FormData);
     const bookData = {
         title: formData.get('title').trim(),
         author: formData.get('author').trim(),
