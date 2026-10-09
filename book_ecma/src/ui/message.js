@@ -39,6 +39,7 @@ export function showMessage(text, type = "error", timeout = 0) {
     // 대괄호를 쓰면 변수에 담긴 이름으로 꺼낼 수 있다.
     formError.style.color = COLORS[type] ?? COLORS.error;
     formError.style.display = "block";
+    formError.style.display = 'inline';
 
     // 오류는 사용자가 고칠 때까지 남겨 두고, 성공만 시간이 지나면 지운다.
     if (timeout > 0) {

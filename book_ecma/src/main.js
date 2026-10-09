@@ -7,17 +7,17 @@ import {
     fetchBook,
     fetchBooks
 } from "./api/bookApi.js";
-import {bookForm, collectBookData} from "./ui/bookForm.js";
+import {bookForm, collectBookData, submitButton, cancelButton, setEditMode, resetForm, fillForm, scrollToForm} from "./ui/bookForm.js";
 import {validateBook} from "./lib/validation.js";
-
+import {showMessage, showError, showSuccess, clearMessages, setLoading} from "./ui/message.js"
 
 // 전역 변수
 let editingBookId = null; // 현재 수정 중인 도서 ID
 
 // DOM 요소 참조
-// export const bookForm = document.getElementById('bookForm');
 const bookTableBody = document.getElementById('bookTableBody');
-const submitButton = bookForm.querySelector('button[type="submit"]');
+//export const bookForm = document.getElementById('bookForm');
+//const submitButton = bookForm.querySelector('button[type="submit"]');
 
 // 초기화
 document.addEventListener('DOMContentLoaded', function() {
@@ -36,10 +36,10 @@ bookForm.addEventListener('submit', function(e) {
     const message = validateBook(bookData);
     if (message) {
     //alert('등록에 실패했습니다.');
-    //showError(message);   // 과제 9 에서 만든다. 지금은 alert 으로 둔다
+    showError(message);   // 과제 9 에서 만든다. 지금은 alert 으로 둔다
     return;
     }
-
+    
     // 수정 모드인지 확인
     if (editingBookId) {
         updateBook(editingBookId, bookData);
@@ -48,17 +48,24 @@ bookForm.addEventListener('submit', function(e) {
     }
 });
 
+//수정 취소 버튼
+cancelButton.addEventListener('click', function() {
+    resetForm();          // bookForm.js의 함수 호출
+    editingBookId = null; // main.js 자신의 상태 직접 수정
+});
+
 // 도서 생성 함수
 async function createBook(book) {
   try{
+    setLoading(true);
     await apiCreateBook(book);
+    showSuccess('등록되었습니다.');
     resetForm();
     loadBooks();
   }catch(error) {
-        console.error('Error:', error);
-        alert('등록에 실패했습니다.');
+        showError(error.message);
   }finally{
-        console.log('로딩중');
+        setLoading(false);
   }
 }
 
@@ -84,7 +91,6 @@ async function loadBooks() {
     }finally{
         console.log('로딩중');
     }
-  
 }
 
 // 도서 테이블 렌더링
@@ -121,7 +127,6 @@ async function deleteBook(bookId) {
     if (!confirm('정말로 이 도서를 삭제하시겠습니까?')) {
         return;
     }
-
     try{
       await apiDeleteBook(bookId);
       loadBooks();
@@ -137,30 +142,12 @@ async function deleteBook(bookId) {
 async function editBook(bookId) {
     try{
     const book = await fetchBook(bookId);
-    console.log(bookForm);
-    bookForm.title.value = book.title;
-    bookForm.author.value = book.author;
-    bookForm.isbn.value = book.isbn;
-    bookForm.price.value = book.price || '';
-    bookForm.publishDate.value = book.publishDate || '';
-
-    // 폼에 상세 정보 채우기
-    if (book.bookDetail) {
-    bookForm.description.value = book.bookDetail.description || '';
-    bookForm.language.value = book.bookDetail.language || '';
-    bookForm.pageCount.value = book.bookDetail.pageCount || '';
-    bookForm.publisher.value = book.bookDetail.publisher || '';
-    bookForm.coverImageUrl.value = book.bookDetail.coverImageUrl || '';
-    bookForm.edition.value = book.bookDetail.edition || '';
-    }
+    fillForm(book);
     // 수정 모드로 설정
     editingBookId = bookId;
-    submitButton.textContent = '도서 수정';
-
+    setEditMode(true);
     // 폼으로 스크롤
-    bookForm.scrollIntoView({ behavior: 'smooth' });
-    
-
+    scrollToForm();
   } catch(error){
     console.error('Error:', error);
     alert('도서 정보를 불러오는데 실패했습니다.');
@@ -170,13 +157,15 @@ async function editBook(bookId) {
 //도서 업데이트 함수
 async function updateBook(bookId, bookData) {
   try{
+    setLoading(true);
     await apiUpdateBook(bookId, bookData);
-    alert('도서 정보가 성공적으로 수정되었습니다.');
+    showSuccess('수정되었습니다.');
     resetForm();
     loadBooks(); // 목록 새로고침
-  }catch(error){
-    console.error('Error:', error);
-    alert('도서 정보를 불러오는데 실패했습니다.');
+  } catch(error){
+    showError(error.message);
+  } finally{
+    setLoading(false);
   }
 }
 
@@ -203,13 +192,6 @@ async function showBookDetail(bookId) {
     console.error('Error:', error);
     alert('도서 정보를 불러오는데 실패했습니다.');
   }
-}
-
-// 폼 초기화 함수
-function resetForm() {
-    bookForm.reset();
-    editingBookId = null;
-    submitButton.textContent = '도서 등록';
 }
 
 window.editBook = editBook;
